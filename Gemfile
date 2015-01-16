@@ -1,5 +1,26 @@
 source 'https://rubygems.org'
 
+group :development, :test do
+  gem 'pry-rails' 
+  gem 'pry-byebug'
+  gem 'pry-stack_explorer'
+  gem 'meta_request'
+  gem 'better_errors'
+end
+
+gem 'haml-rails'
+gem 'devise'
+gem 'omniauth-facebook'
+gem 'cancancan'
+gem 'ransack'
+gem 'carrierwave', '0.9.0'
+gem 'rmagick'
+gem 'acts_as_votable', '~> 0.10.0'
+gem 'fog', '~> 1.3.1'
+gem 'rails_12factor', group: :production
+
+
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
