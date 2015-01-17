@@ -1,8 +1,9 @@
 User.delete_all
 Dog.delete_all
 
-# user1 = User.create!(email: "bruno@date-my-dog.co.uk", password: "password",  nickname: "Bruno", first_name: "Bruno", last_name: "Vinel", name: "Bruno", image: nil, urls: nil, location: nil, verified: nil, gender: "male", postcode: "N4 2HW", home_lat: nil, home_long: nil, description: "I am Bruno", provider: nil, uid: nil)
-user2 = User.create!(email: "sophie@date-my-dog.co.uk", password: "password",  nickname: "Sophie", first_name: "Sophie", last_name: "Cottin", name: "Sophie", image: nil, urls: nil, location: nil, verified: nil, gender: "female", postcode: "W6 7RG", home_lat: nil, home_long: nil, description: "I am Sophie", provider: nil, uid: nil)
-# dog1 = Dog.create!(name: "Fluffy", user_id: 1, sex: "male", breed: "labrador", dob: nil, picture: nil, sound: nil, description: "I am a lovely labrador dog")
-# dog2 = Dog.create!(name: "Star", user_id: 1, sex: "female", breed: "golden retriever", dob: nil, picture: nil, sound: nil, description: "I am a beautiful golden retriever dog")
+user1 = User.create!(email: "bruno@date-my-dog.co.uk", password: "password",  nickname: "Bruno", first_name: "Bruno", last_name: "Vinel", name: "Bruno", image: nil, urls: nil, location: nil, verified: nil, gender: "male", postcode: "N4 2HW", home_lat: nil, home_long: nil, description: "I am Bruno", provider: nil, uid: nil, role: "admin")
+user2 = User.create!(email: "sophie@date-my-dog.co.uk", password: "password",  nickname: "Sophie", first_name: "Sophie", last_name: "Cottin", name: "Sophie", image: nil, urls: nil, location: nil, verified: nil, gender: "female", postcode: "W6 7RG", home_lat: nil, home_long: nil, description: "I am Sophie", provider: nil, uid: nil, role: "user")
+user3 = User.create!(email: "datemydognow@gmail.com", password: "password", nickname: "Paul", first_name: "Paul", last_name: "Stevenson", name: "Paul Stevenson", image: nil, urls: 'https://scontent-a-lhr.xx.fbcdn.net/hphotos-xpa1/t31.0-8/p960x960/10929223_1383749601930961_3192045637890512341_o.jpg', location: nil, verified: nil, gender: nil, postcode: "N1 2AG", home_lat: nil, home_long: nil, description: "Hi I am Paul from London", provider: "facebook", uid: "1383750341930887", role: "user")
+dog1 = Dog.create!(name: "Fluffy", user_id: 1, sex: "male", breed: "labrador", dob: nil, picture: nil, sound: nil, description: "I am a lovely labrador dog")
+dog2 = Dog.create!(name: "Star", user_id: 1, sex: "female", breed: "golden retriever", dob: nil, picture: nil, sound: nil, description: "I am a beautiful golden retriever dog")
 dog3 = Dog.create!(name: "Cachoux", user_id: 2, sex: "female", breed: "beagle", dob: nil, picture: nil, sound: nil, description: "I am a lovely beagle puppy")
