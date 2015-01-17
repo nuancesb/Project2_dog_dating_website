@@ -1,5 +1,7 @@
 %table
   %tr
+    / %td= image_tag(user.image, alt: "User image", :class => "user_img")
+  %tr
     %td ID
     %td= @user.id
   %tr  
@@ -39,6 +41,7 @@
     %td Role
     %td= @user.role
 
-= link_to 'Edit', edit_user_path(@user)
+- if can? :edit, User
+  = link_to 'Edit', edit_user_path(@user) 
 \|
 = link_to 'Back', users_path

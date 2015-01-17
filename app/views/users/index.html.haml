@@ -3,6 +3,7 @@
 %table
   %thead
     %tr
+      %th
       %th ID
       %th Nickname
       %th Name
@@ -20,6 +21,7 @@
   %tbody
     - @user.each do |user|
       %tr
+        %td= link_to image_tag(user.image, alt: "image"), user
         %td= user.id
         %td= user.nickname
         %td= user.name
@@ -34,7 +36,9 @@
         %td= user.provider
         %td= user.role
         %td= link_to 'Show', user
-        %td= link_to 'Edit', edit_user_path(user)
-        %td= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        - if can? :edit, User
+          %td= link_to "Edit", edit_user_path(user)
+        - if can? :destroy, User
+          %td= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
