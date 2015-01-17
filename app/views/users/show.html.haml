@@ -1,0 +1,44 @@
+%table
+  %tr
+    %td ID
+    %td= @user.id
+  %tr  
+    %td Nickname
+    %td= @user.nickname
+  %tr
+    %td Name
+    %td= @user.name
+  %tr
+    %td Sex
+    %td= @user.gender
+  %tr
+    %td First Name
+    %td= @user.first_name
+  %tr
+    %td Last Name
+    %td= @user.last_name
+  %tr
+    %td Location
+    %td= @user.location
+  %tr
+    %td Postcode
+    %td= @user.postcode
+  %tr
+    %td Home Latitude
+    %td= @user.home_lat
+  %tr
+    %td Home Longitude
+    %td= @user.home_long
+  %tr
+    %td Description
+    %td= @user.description
+  %tr
+    %td Login Provider
+    %td= @user.provider
+  %tr
+    %td Role
+    %td= @user.role
+
+= link_to 'Edit', edit_user_path(@user)
+\|
+= link_to 'Back', users_path
