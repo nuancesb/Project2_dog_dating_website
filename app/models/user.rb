@@ -46,4 +46,9 @@ class User < ActiveRecord::Base
     self.role.to_s == role_to_compare.to_s
   end
 
+  #this is a method for the mailboxer gem
+  def name
+    return :name
+  end
+
 end
