@@ -3,4 +3,6 @@
 <p>Conversation between: <%= @conversation.participants.map(&:name).to_sentence %></p>
 <p><%= render @conversation.messages %></p>
 <!-- Put link here to reply to message -->
-<%#= link_tag  '/users/:user_id/conversations/:id/reply' %>
+
+<!-- Ask Michael about correct link to reply form. Params need to include user_id and conversation_id in order to display previous messages as part of this conversation. -->
+<%#= link_to 'Reply', reply_to_conversation_path   %>
