@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
 
   #this is a method for the mailboxer gem
   def name
-    return :name
+    return nickname
   end
 
 end
