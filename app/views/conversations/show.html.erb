@@ -1,0 +1,3 @@
+<h1><%= @conversation.subject %></h1>
+<p><%= @conversation.participants.map(&:name).to_sentence %></p>
+<%= render @conversation.messages %>
