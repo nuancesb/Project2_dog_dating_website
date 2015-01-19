@@ -12,24 +12,31 @@ class User < ActiveRecord::Base
     if user = User.find_by_email(auth.info.email)
       user.provider = auth.provider
       user.uid = auth.uid
-      user.first_name = auth.first_name
-      user.last_name = auth.last_name
-      user.gender = auth.gender 
-      user.image = auth.image
-      user.urls = auth.urls
-      user.verified = auth.verified
+      user.first_name = auth.info.first_name
+      user.last_name = auth.info.last_name
+      user.nickname = auth.info.name
+      user.name = auth.info.name
+      user.gender = auth.extra.raw_info.gender 
+      user.image = auth.info.image
+      user.urls = auth.extra.raw_info.link
+      user.verified = auth.extra.raw_info.verified
+      user.save
+      user
     else
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
         user.provider = auth.provider
         user.uid = auth.uid
         user.email = auth.info.email
         user.password = Devise.friendly_token[0,20]
-        user.first_name = auth.first_name
-        user.last_name = auth.last_name
-        user.gender = auth.gender 
-        user.image = auth.image
-        user.urls = auth.urls
-        user.verified = auth.verified
+        user.first_name = auth.info.first_name
+        user.last_name = auth.info.last_name
+        user.nickname = auth.info.name
+        user.name = auth.info.name
+        user.gender = auth.extra.raw_info.gender 
+        user.image = auth.info.image
+        user.urls = auth.extra.raw_info.link
+        user.verified = auth.extra.raw_info.verified
+        user
       end
     end
   end
