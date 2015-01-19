@@ -11,8 +11,7 @@ class UsersController < ApplicationController
   def show
       @user = User.find(params[:id])
       @users = User.all
-      @postcode = @users.map do |user| user.postcode
-      end
+      
     end
 
   def edit
