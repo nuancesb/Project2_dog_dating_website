@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   :omniauthable, omniauth_providers: [:facebook]
 
   has_many :dogs, dependent: :destroy
+  acts_as_messageable
 
   def self.from_omniauth(auth)
     if user = User.find_by_email(auth.info.email)
