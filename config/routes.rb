@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resource :profile, only: [:edit, :update, :show], controller: :users
   resources :dogs
-  resources :users, only: :index
-  
+  resources :users, only: [:index, :show]
+
+
 end
