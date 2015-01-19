@@ -51,4 +51,8 @@ class User < ActiveRecord::Base
     return nickname
   end
 
+  def mailboxer_email(object)
+      email
+    end
+
 end

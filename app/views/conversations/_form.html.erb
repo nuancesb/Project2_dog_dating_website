@@ -1,0 +1,13 @@
+<%= form_tag user_conversations_path(@user) do %>
+  <div class="field">
+    <%= label_tag :subject %><br>
+    <%= text_field_tag :subject %>
+  </div>
+  <div class="field">
+    <%= label_tag :body %><br>
+    <%= text_field_tag :body %>
+  </div>
+  <div class="actions">
+    <%= submit_tag %>
+  </div>
+<% end %>
