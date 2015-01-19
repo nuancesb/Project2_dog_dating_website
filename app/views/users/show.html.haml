@@ -42,6 +42,6 @@
     %td= @user.role
 
 - if can? :edit, User
-  = link_to 'Edit', edit_user_path(@user) 
+  = link_to 'Edit', edit_profile_path
 \|
 = link_to 'Back', users_path
