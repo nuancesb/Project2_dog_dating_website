@@ -1,0 +1,6 @@
+<article>
+  <h1><%= conversation.subject %></h1>
+<%= link_to 'Show', conversation_path(conversation) %>
+<%= 'Unread' if conversation.is_unread?(current_user) %>
+
+</article>
