@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
       user.image = auth.info.image
       user.urls = auth.extra.raw_info.link
       user.verified = auth.extra.raw_info.verified
+      user.role = "user"
       user.save
       user
     else
@@ -36,7 +37,9 @@ class User < ActiveRecord::Base
         user.image = auth.info.image
         user.urls = auth.extra.raw_info.link
         user.verified = auth.extra.raw_info.verified
+        user.role = "user"
         user
+
       end
     end
   end
