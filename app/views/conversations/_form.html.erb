@@ -1,3 +1,9 @@
+<% if any? %>
+<% @messages.map do |message| %>
+<%= message.body %>
+<% end %>
+<% end %>
+
 <%= form_tag user_conversations_path(@user) do %>
   <div class="field">
     <%= label_tag :subject %><br>

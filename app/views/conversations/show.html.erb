@@ -2,3 +2,5 @@
 <h3>Subject: <%= @conversation.subject %></h3>
 <p>Conversation between: <%= @conversation.participants.map(&:name).to_sentence %></p>
 <p><%= render @conversation.messages %></p>
+<!-- Put link here to reply to message -->
+<%#= link_tag  '/users/:user_id/conversations/:id/reply' %>
