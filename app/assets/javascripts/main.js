@@ -6,6 +6,16 @@ myMap.initialize = function(){
     zoom: 14
   };
 
+
+  
+  var objet = document.getElementById("test");
+
+  console.log(objet.innerHTML);
+
+
+
+
+
   myMap.map = new google.maps.Map(myMap.mapElement, mapOptions);
 
 
