@@ -8,7 +8,6 @@ group :development, :test do
   gem 'better_errors'
 end
 
-gem 'haml-rails'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'cancancan'
