@@ -6,48 +6,8 @@ myMap.initialize = function(){
     zoom: 14
   };
 
-
-
-
-
-
   myMap.map = new google.maps.Map(myMap.mapElement, mapOptions);
 
-
-  var markerOptions = {
-    position: { lat: 51.53, lng: -0.109446}
-  };
-
-  var marker = new google.maps.Marker(markerOptions);
-
-  marker.setMap(myMap.map);
-
-  var popupOptions = {
-    content: 'We are here'
-    // position: new google.maps.LatLng(51.535, -0.10945)
-  };
-
-  var popup = new google.maps.InfoWindow(popupOptions);
-
-  setTimeout(function(){
-    popup.open(myMap.map);
-  }, 5000);
-
-  google.maps.event.addListener(marker, "mouseover", function(){
-    popup.open(myMap.map, marker);
-  });
-
-  google.maps.event.addListener(marker, "mouseout", function(){
-    popup.close(myMap.map, marker);
-  });
-
-  // setTimeout(function(){
-  //   myMap.map.setCenter(marker.getPosition())
-  // }, 3000);
-
-  myMap.locatorElement.on("click", function(){
-    myMap.getPosition();
-  });
 }
 
 myMap.getPosition = function(){
@@ -56,7 +16,7 @@ myMap.getPosition = function(){
   } else {
     alert("You cannot geolocate");
   }
-};
+}
 
 myMap.populateMap = function() {
   $.get(
@@ -64,11 +24,22 @@ myMap.populateMap = function() {
     {},
     function(data) {
       $.each(data, function(key, value) {
-        console.log(value);
-       });
+        if (value.home_lat && value.home_long) {
+          myMap.addMarker({
+            lat: value.home_lat, 
+            lng: value.home_long,
+            icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+            popupContent: value.description
+          });
+        }        
+      });
     },
     'json'
-  );
+    );
+}
+
+myMap.geolocationFail = function(position){
+  console.log('failed to geolocate');
 }
 
 myMap.geolocationSuccess = function(position){
@@ -78,8 +49,9 @@ myMap.geolocationSuccess = function(position){
     icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
     popupContent: 'You are here'
   });
-
-};
+  myMap.map.setCenter(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+  myMap.map.setZoom(17);
+}
 
 myMap.addMarker = function(data){
   var markerOptions = {
@@ -90,8 +62,6 @@ myMap.addMarker = function(data){
   var marker = new google.maps.Marker(markerOptions);
 
   marker.setMap(myMap.map);
-  myMap.map.setCenter(marker.getPosition());
-  myMap.map.setZoom(17);
 
   var popupOptions = {
     content: data.popupContent
@@ -99,19 +69,24 @@ myMap.addMarker = function(data){
 
   var popup = new google.maps.InfoWindow(popupOptions);
 
-  google.maps.event.addListener(marker, "click", function(){
-    popup.open(myMap.map, marker);    
+  
+  google.maps.event.addListener(marker, "mouseover", function(){
+    popup.open(myMap.map, marker);
   });
 
+  google.maps.event.addListener(marker, "mouseout", function(){
+    popup.close(myMap.map, marker);
+  });
   popup.open(myMap.map, marker);
 
-};
+}
 
 
 $(function(){
   myMap.mapElement = $("#map-canvas")[0];
-  myMap.locatorElement = $("#locator");
   myMap.initialize();
+  myMap.getPosition();
+  myMap.populateMap();  
 });
 
 
@@ -120,7 +95,7 @@ $(function(){
 // //       position: new google.maps.LatLng(51.53, -0.109446)
 // //   }
 // myApp.initMap = function() {
- 
+
 //   var mapOptions = {
 //       center: { lat:  51.52, lng: -0.115},     
 //       zoom: 14,
