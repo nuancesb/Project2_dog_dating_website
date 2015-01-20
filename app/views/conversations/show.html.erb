@@ -1,8 +1,8 @@
 
 <h3>Subject: <%= @conversation.subject %></h3>
 <p>Conversation between: <%= @conversation.participants.map(&:name).to_sentence %></p>
-<p><%= link_to "Move to Trash", {:controller => "conversations", :action => 
-    "trash", :id => @conversation.id}, :title=> "Move to Trash", :method=>'post' %></p>
+<%= link_to "Move to Trash", {:controller => "conversations", :action => 
+    "trash", :id => @conversation.id}, :title=> "Move to Trash", :method=>'post' %>
 <p><%= render @conversation.messages %></p>
 
 <!-- Move conversation to trash -->

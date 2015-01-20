@@ -32,7 +32,7 @@ class ConversationsController < ApplicationController
     redirect_to conversation_path
   end
 
-  def destroy
+  def delete
     @conversation.mark_as_deleted(current_user)
     redirect_to conversation_path
   end
