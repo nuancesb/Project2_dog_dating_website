@@ -1,21 +1,22 @@
 <div class="row">
-  <div class="large-2 columns">
+  <div class="large-3 columns">
     <%= image_tag(@user.image, width: "80em", alt: "User image") %>
   </div>  
-  <div class="large-10 columns">
+  <div class="large-9 columns">
     <div class="row">
-      <div class="large-10 columns">
+      <div class="large-9 columns">
         <h2><%= @user.nickname %> Profile</h2>
       </div>
     </div>
     <div class="row">
-      <div class="large-10 columns">
+      <div class="large-9 columns">
         <%= @user.description %>
       </div>
     </div>
   </div>
 </div>
 <div class="row">
+  <br>
 </div>
 <div class="row">
   <div class="large-3 columns">
@@ -27,6 +28,7 @@
       <div class="large-9 columns">
         <%= link_to image_tag(dog.picture, width: "80em", alt: "dog image"), dog %> <br>
         Dog name: <%= dog.name %>
+        <br>
       </div> 
     </div> 
     <% end %>

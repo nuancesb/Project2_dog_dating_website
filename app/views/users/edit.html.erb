@@ -1,72 +1,85 @@
-<h2>Please edit or complete your profile:</h2>
-<%= form_for(@user, url: profile_path) do |f| %>
+<div class="row">
+  <h2>Please edit or complete your profile:</h2>
+</div>  
+<div class="row">
+  <%= form_for(@user, url: profile_path) do |f| %>
   <% if @user.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-        <ul>
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-  <div class="row">
-    <div class="field, large-6 columns">
-      <p>Your email: <%= @user.email %></p>
-    </div>
+  <div data-alert class="alert-box alert round">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+    <a href="#" class="close">&times;</a>
   </div>
-  </div>
-  <div class="row">
-    <div class="field, large-3 columns">
-      <%= f.label :nickname, 'Your nickname on our site:' %> 
-      <%= f.text_field :nickname, onchange: "if ($('#session_user').nickname nil) { alert('Your Nickname cannot be empty!'); }" %>
-    </div>
-    <div class="field, large-3 columns">
-      <%= f.label :first_name, 'First Name: ' %> 
-      <%= f.text_field :first_name %>
-    </div>
-    <div class="field, large-3 columns">
-      <%= f.label :last_name %> 
-      <%= f.text_field :last_name %>
-    </div>
-    <div class="field, large-3 columns">
-      <%= f.label :gender %> 
-      <%= f.select :role, [["Male", "male"],["Female","female"],["Trans","trans"],["Other","other"]] %>
-    </div>
-  </div>
-  <div class="row">
-    <p>Enter your home location (postcode or latitude and longitude):</p>
-    <div class="field, large-3 columns">
-      <%= f.label :postcode %> 
-      <%= f.text_field :postcode %>
-    </div>
-    <div class="field, large-3 columns">
-      <%= f.label :home_lat, 'Latitude: ' %> 
-      <%= f.text_field :home_lat %>
-    </div>
-    <div class="field, large-3 columns">
-      <%= f.label :home_long, 'Longitude: ' %> 
-      <%= f.text_field :home_long %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="field,large-12 columns">
-      <%= f.label :description, 'Your profile description: ' %> 
-      <%= f.text_field :description %>
-    </div>
-  </div>   
-  <div class="row">
-    <div class="field,large-3 columns">
-      <%= f.label :image, 'Select the image file or url:' %><br>
-      <%= image_tag(@user.image, size: "50x50", class: "user_pic", alt: "user image") %>
-      <%= f.file_field :image %>
-      <%= f.text_field :remote_image_url, value: nil, placeholder: 'or paste url here' %>
-    </div>
-  </div>
+  <% end %>
+</div>  
 
-  <div class="row">
-    <div class="actions, large-12 columns">
-      <%= f.submit "Sign up", class: "button alert" %>
+<div class="row">
+  <div class="field, large-3 columns">
+    <%= f.label :image, 'Select the image file or url:' %><br>
+    <%= image_tag(@user.image, width: "80em", class: "user_pic", alt: "user image") %>
+    <%= f.file_field :image %>
+    <%= f.text_field :remote_image_url, value: nil, placeholder: 'or paste url here' %>
+  </div>
+  <div class="field, large-9 columns">
+    <div class="row">
+      <div class="field, large-12 columns">
+        <p>Your email: <%= @user.email %>. If you want to change it, you need to register again!</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field, large-3 columns">
+        <%= f.label :nickname, 'Your nickname:' %> 
+        <%= f.text_field :nickname, onchange: "if ($('#session_user').nickname nil) { alert('Your Nickname cannot be empty!'); }" %>
+      </div>
+      <div class="field, large-3 columns">
+        <%= f.label :first_name, 'First Name: ' %> 
+        <%= f.text_field :first_name %>
+      </div>
+      <div class="field, large-3 columns">
+        <%= f.label :last_name %> 
+        <%= f.text_field :last_name %>
+      </div>
+      <div class="field, large-3 columns">
+        <%= f.label :gender %> 
+        <%= f.select :role, [["Male", "male"],["Female","female"],["Trans","trans"],["Other","other"]] %>
+      </div>
+    </div> 
+    <div class="row">
+      <div class="field, large-3 columns">
+        <%= f.label :postcode, 'Your postcode:' %> 
+        <%= f.text_field :postcode, class: 'postcode_entry' %>
+      </div>
+      <div class="field, large-6 columns">
+        <br>
+        (Geolocation: Latitude: <%= @user.home_lat %>, Longitude: <%= @user.home_long %>)
+      </div>
+      <div class="field, large-3 columns">
+         
+      </div>
     </div>
   </div>
+</div>
+
+
+<div class="field, large-3 columns">
+  
+</div>
+</div>
+
+<div class="row">
+  <div class="field,large-12 columns">
+    <%= f.label :description, 'Your profile description: ' %> 
+    <%= f.text_field :description %>
+  </div>
+</div>   
+
+
+<div class="row">
+  <div class="actions, large-12 columns">
+    <%= f.submit "Sign up", class: "button alert" %>
+  </div>
+</div>
 <% end %>

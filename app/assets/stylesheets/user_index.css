@@ -10,8 +10,28 @@ h1 .logo {
   text-align: center;
 }
 
+.FB-sign-in {
+  font-size: 2em;
+  text-align: center;
+  box-shadow: 3px 3px 10px #888888;
+  background-color: #FCA504;
+  padding: 1em 2em 1em 2em;
+}
+
 .email_log {
   color: #2C6700;
+}
+
+.column .large-centered {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; 
+}
+
+.column .medium-centered {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; 
 }
 
 #map-canvas { 
