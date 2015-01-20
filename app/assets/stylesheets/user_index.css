@@ -1,4 +1,4 @@
-.logo {
+h1 .logo {
   font-family: 'Courgette', cursive;
   color: #2C6700;
   font-size: 2em;
@@ -15,8 +15,8 @@
 }
 
 #add_section {
-  height: 100px;
+  height: 8em;
   box-shadow: 3px 3px 10px #888888;
-  margin: 10px 0 10px 0;
+  margin: 0.5em 0 0.5em 0;
   text-align: center;
 }
