@@ -1,4 +1,4 @@
-<h2>Edit Profile</h2>
+<h2>Please edit or complete your profile:</h2>
 <%= form_for(@user, url: profile_path) do |f| %>
   <% if @user.errors.any? %>
       <div id="error_explanation">
@@ -12,7 +12,7 @@
     <% end %>
   <div class="row">
     <div class="field, large-6 columns">
-      <p>Please complete the registration process for <%= @user.email %></p>
+      <p>Your email: <%= @user.email %></p>
     </div>
   </div>
   </div>
@@ -58,6 +58,7 @@
   <div class="row">
     <div class="field,large-3 columns">
       <%= f.label :image, 'Select the image file or url:' %><br>
+      <%= image_tag(@user.image, size: "50x50", class: "user_pic", alt: "user image") %>
       <%= f.file_field :image %>
       <%= f.text_field :remote_image_url, value: nil, placeholder: 'or paste url here' %>
     </div>
@@ -65,7 +66,7 @@
 
   <div class="row">
     <div class="actions, large-12 columns">
-      <%= f.submit "Sign up" %>
+      <%= f.submit "Sign up", class: "button alert" %>
     </div>
   </div>
 <% end %>

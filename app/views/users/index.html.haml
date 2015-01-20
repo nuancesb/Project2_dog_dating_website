@@ -23,7 +23,7 @@
   %tbody
     - @users.each do |user|
       %tr
-        %td= link_to image_tag(user.image, alt: "image"), user
+        %td= link_to image_tag(user.image, alt: "user image"), user
         %td= user.id
         %td= user.nickname
         %td= user.name
@@ -38,6 +38,6 @@
         %td= user.provider
         %td= user.role
         %td= link_to 'Show', user
+        %td= link_to 'Message me!', new_user_conversation_path(user.id)
 
 
-%br

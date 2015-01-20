@@ -5,12 +5,24 @@ before_action :set_user, only: [:show, :edit, :update]
   authorize_resource
 
   def index
-    @users = User.all
-  end
 
+    @users = User.all
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @users }
+    end
+
+  end
 
   def show
+
+      # @user = User.find(params[:id])
+      # @users = User.all
+
+
   end
+
 
   def edit
     # redirect_to edit_profile_path

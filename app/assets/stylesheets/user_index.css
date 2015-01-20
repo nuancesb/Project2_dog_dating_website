@@ -1,8 +1,12 @@
 .logo {
   font-family: 'Courgette', cursive;
-  color: #FCA504;
+  color: #2C6700;
   font-size: 2em;
   text-align: center;
+}
+
+.email_log {
+  color: #2C6700;
 }
 
 #map-canvas { 
