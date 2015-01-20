@@ -26,7 +26,7 @@ myMap.populateMap = function() {
       $.each(data, function(key, value) {
         if (value.home_lat && value.home_long) {
           myMap.addMarker({
-            lat: value.home_lat, 
+            lat: value.home_lat,
             lng: value.home_long,
             icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
             popupContent: value.description
