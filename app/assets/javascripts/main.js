@@ -4,6 +4,7 @@ myMap.initialize = function(){
   var mapOptions = {
     center: { lat: 51.52, lng: -0.115 },
     zoom: 5
+
   };
 
   myMap.map = new google.maps.Map(myMap.mapElement, mapOptions);
@@ -24,11 +25,12 @@ myMap.populateMap = function() {
     {},
     function(data) {
       $.each(data, function(key, value) {
-        if (value.home_lat && value.home_long) {
+        if (value.postcode) {
           myMap.addMarker({
             lat: value.home_lat,
             lng: value.home_long,
-            icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+            icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
+
             popupContent: value.description
           });
         }        
@@ -70,11 +72,11 @@ myMap.addMarker = function(data){
   var popup = new google.maps.InfoWindow(popupOptions);
 
   
-  google.maps.event.addListener(marker, "mouseover", function(){
+  google.maps.event.addListener(marker, "click", function(){
     popup.open(myMap.map, marker);
   });
 
-  google.maps.event.addListener(marker, "mouseout", function(){
+  google.maps.event.addListener(marker, "mouseover", function(){
     popup.close(myMap.map, marker);
   });
   popup.open(myMap.map, marker);
@@ -92,35 +94,3 @@ $(function(){
 });
 
 
-// var myApp = myApp || {};
-// // var markerOptions = {
-// //       position: new google.maps.LatLng(51.53, -0.109446)
-// //   }
-// myApp.initMap = function() {
-
-//   var mapOptions = {
-//       center: { lat:  51.52, lng: -0.115},     
-//       zoom: 14,
-//       mapTypeId:google.maps.MapTypeId.ROADMAP //default
-//   };
-
-//     var map = new google.maps.Map(myApp.mapCanvas, mapOptions);
-//     var markerOptions = {
-//       position: {lat: 51.53, lng: -0.115446}
-//     };
-
-//     var marker = new google.maps.Marker(markerOptions);
-//     marker.setMap(map);
-//     myApp.map.setCenter(marker.getPosition());
-//       myApp.map.setZoom(17);
-
-// };  
-
-// myApp.setup = function() {
-//   console.log("Main JS loaded");
-// };
-
-// $(function() {
-//   myApp.mapCanvas = $('#map-canvas')[0];
-//   myApp.initMap();
-// });
