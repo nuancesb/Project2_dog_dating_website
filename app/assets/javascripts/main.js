@@ -7,11 +7,6 @@ myMap.initialize = function(){
   };
 
 
-  
-  var objet = document.getElementById("test");
-
-  console.log(objet.innerHTML);
-
 
 
 
@@ -63,13 +58,33 @@ myMap.getPosition = function(){
   }
 };
 
-myMap.geolocationSuccess = function(position){
-  var latitude = position.coords.latitude;
-  var longitude = position.coords.longitude;
+myMap.populateMap = function() {
+  $.get(
+    '/users',
+    {},
+    function(data) {
+      $.each(data, function(key, value) {
+        console.log(value);
+       });
+    },
+    'json'
+  );
+}
 
+myMap.geolocationSuccess = function(position){
+  myMap.addMarker({
+    lat: position.coords.latitude, 
+    lng: position.coords.longitude,
+    icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+    popupContent: 'You are here'
+  });
+
+};
+
+myMap.addMarker = function(data){
   var markerOptions = {
-    position: { lat: latitude, lng: longitude},
-    icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+    position: { lat: data.lat, lng: data.lng},
+    icon: data.icon
   };
 
   var marker = new google.maps.Marker(markerOptions);
@@ -79,7 +94,7 @@ myMap.geolocationSuccess = function(position){
   myMap.map.setZoom(17);
 
   var popupOptions = {
-    content: 'You are here'
+    content: data.popupContent
   };
 
   var popup = new google.maps.InfoWindow(popupOptions);
@@ -91,6 +106,7 @@ myMap.geolocationSuccess = function(position){
   popup.open(myMap.map, marker);
 
 };
+
 
 $(function(){
   myMap.mapElement = $("#map-canvas")[0];
