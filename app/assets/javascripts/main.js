@@ -3,8 +3,8 @@ var myMap = myMap || {};
 myMap.initialize = function(){
   var mapOptions = {
     center: { lat: 51.52, lng: -0.115 },
-    zoom: 14
-    
+    zoom: 5
+
   };
 
   myMap.map = new google.maps.Map(myMap.mapElement, mapOptions);
@@ -52,7 +52,7 @@ myMap.geolocationSuccess = function(position){
     popupContent: 'You are here'
   });
   myMap.map.setCenter(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
-  myMap.map.setZoom(17);
+  myMap.map.setZoom(11);
 }
 
 myMap.addMarker = function(data){
@@ -85,42 +85,11 @@ myMap.addMarker = function(data){
 
 
 $(function(){
-  myMap.mapElement = $("#map-canvas")[0];
-  myMap.initialize();
-  myMap.getPosition();
-  myMap.populateMap();  
+  if (myMap.mapElement = $("#map-canvas")[0]) {
+    myMap.initialize();
+    myMap.getPosition();
+    myMap.populateMap();    
+
+  }
 });
 
-
-// var myApp = myApp || {};
-// // var markerOptions = {
-// //       position: new google.maps.LatLng(51.53, -0.109446)
-// //   }
-// myApp.initMap = function() {
-
-//   var mapOptions = {
-//       center: { lat:  51.52, lng: -0.115},     
-//       zoom: 14,
-//       mapTypeId:google.maps.MapTypeId.ROADMAP //default
-//   };
-
-//     var map = new google.maps.Map(myApp.mapCanvas, mapOptions);
-//     var markerOptions = {
-//       position: {lat: 51.53, lng: -0.115446}
-//     };
-
-//     var marker = new google.maps.Marker(markerOptions);
-//     marker.setMap(map);
-//     myApp.map.setCenter(marker.getPosition());
-//       myApp.map.setZoom(17);
-
-// };  
-
-// myApp.setup = function() {
-//   console.log("Main JS loaded");
-// };
-
-// $(function() {
-//   myApp.mapCanvas = $('#map-canvas')[0];
-//   myApp.initMap();
-// });

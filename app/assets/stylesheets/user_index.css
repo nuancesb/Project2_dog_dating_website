@@ -1,16 +1,35 @@
-.logo {
+.main-section {
+  padding-right: 0.1em;
+  padding-left: 0.1em;
+}
+
+h1 .logo {
   font-family: 'Courgette', cursive;
-  color: #FCA504;
+  color: #2C6700;
   font-size: 2em;
   text-align: center;
 }
 
+.email_log {
+  color: #2C6700;
+}
+
 #map-canvas { 
-  height: 500px; 
+  height: 22em; 
   border: 1px solid black;
+
 
 }
 
 #map-canvas img {
   max-width: none;
+
+}
+
+#add_section {
+  height: 8em;
+  box-shadow: 3px 3px 10px #888888;
+  margin: 0.5em 0 0.5em 0;
+  text-align: center;
+
 }

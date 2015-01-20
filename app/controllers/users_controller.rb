@@ -1,45 +1,30 @@
 class UsersController < ApplicationController
-  
-before_action :set_user, only: [:show, :edit, :update]
+
 
   authorize_resource
 
   def index
-
     @users = User.all
-
     respond_to do |format|
       format.html
       format.json { render json: @users }
     end
-
   end
 
   def show
-
-      # @user = User.find(params[:id])
-      # @users = User.all
-
-
+    @user = User.find(params[:id])
   end
 
-
   def edit
-    # redirect_to edit_profile_path
+   @user = current_user
   end
 
   def update
-    @user.update(user_params)
-    redirect_to(profile_path)
+    current_user.update(user_params)
+    redirect_to(user_path(current_user))
   end
-
-
-
 
   private
-  def set_user
-    @user = current_user
-  end
 
   def user_params
     params.require(:user).permit(:email, :nickname, :first_name, :last_name, :name, :image, :urls, :location, :verified, :gender, :postcode, :home_lat, :home_long, :description)

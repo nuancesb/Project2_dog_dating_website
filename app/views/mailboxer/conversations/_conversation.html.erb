@@ -2,5 +2,6 @@
   <h2><%= link_to conversation.subject, conversation_path(conversation) %></h2>
   <p><%= 'New message!' if conversation.is_unread?(current_user) %>
     <%= 'Message was read' if conversation.is_read?(current_user) %>
+    
   </p>
 </article>

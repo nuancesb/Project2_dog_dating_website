@@ -55,6 +55,10 @@ class User < ActiveRecord::Base
     [home_lat, home_long].all?
   end
 
+  def current_user_log?
+    current_user?
+  end
+
   #this is a method for the mailboxer gem
   def name
     return nickname
