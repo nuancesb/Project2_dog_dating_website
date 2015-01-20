@@ -41,6 +41,7 @@ class User < ActiveRecord::Base
         user.verified = auth.extra.raw_info.verified
         user.role = "user"
         user
+
       end
     end
   end
