@@ -41,7 +41,19 @@
         %td= link_to 'Message me!', new_user_conversation_path(user.id)
 
 %h2 My latest messages
-%p Table with the most recent messages will go here... 
+%table
+  %thead
+    %tr
+      %th Sender
+      %th Topic
+      %th Date
+
+  %tbody
+  -current_user.mailbox.conversations.each do |conversation|
+    %tr
+      / %td=
+      %td= conversation.subject
+      / %td=
 
 
 
