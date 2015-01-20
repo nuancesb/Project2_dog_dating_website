@@ -7,9 +7,9 @@
     </ul>
     <section class="top-bar-section">
       <ul class="right">
-        <li><%= link_to 'Home', users_path if can?(:read, User)  %></li>
+        <li><%= link_to 'Home', users_path  %></li>
         <li class="search_menu"><a href="#">Search for dogs</a></li>
-        <li class="messages_menu"><%= link_to "My messages", conversations_path %></li>
+        <li class="messages_menu"><%= link_to "My messages", conversations_path  %></li>
         <li><a href="#">My favorites</a></li>
         <li><a href="#">Help - FAQ</a></li>
         <li><a href="#">About</a></li>

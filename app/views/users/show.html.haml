@@ -1,45 +1,17 @@
 %table
   %tr
-    / %td= image_tag(user.image, alt: "User image", :class => "user_img")
-  %tr
-    %td ID
-    %td= @user.id
+    %td= image_tag(@user.image, size: "80 x 80", alt: "User image")
   %tr  
     %td Nickname
     %td= @user.nickname
   %tr
-    %td Name
-    %td= @user.name
-  %tr
-    %td Sex
-    %td= @user.gender
-  %tr
-    %td First Name
-    %td= @user.first_name
-  %tr
-    %td Last Name
-    %td= @user.last_name
-  %tr
-    %td Location
-    %td= @user.location
-  %tr
-    %td Postcode
-    %td= @user.postcode
-  %tr
-    %td Home Latitude
-    %td= @user.home_lat
-  %tr
-    %td Home Longitude
-    %td= @user.home_long
-  %tr
     %td Description
     %td= @user.description
-  %tr
-    %td Login Provider
-    %td= @user.provider
-  %tr
-    %td Role
-    %td= @user.role
+  - @user.dogs.each do |dog|
+    %tr
+      %td= link_to image_tag(dog.picture, alt: "dog image"), dog
+      %td Dog name
+      %td= dog.name
 
 - if can? :edit, User
   = link_to 'Edit', edit_profile_path

@@ -3,7 +3,7 @@ var myMap = myMap || {};
 myMap.initialize = function(){
   var mapOptions = {
     center: { lat: 51.52, lng: -0.115 },
-    zoom: 14
+    zoom: 5
   };
 
   myMap.map = new google.maps.Map(myMap.mapElement, mapOptions);
@@ -50,7 +50,7 @@ myMap.geolocationSuccess = function(position){
     popupContent: 'You are here'
   });
   myMap.map.setCenter(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
-  myMap.map.setZoom(17);
+  myMap.map.setZoom(11);
 }
 
 myMap.addMarker = function(data){
@@ -83,10 +83,12 @@ myMap.addMarker = function(data){
 
 
 $(function(){
-  myMap.mapElement = $("#map-canvas")[0];
-  myMap.initialize();
-  myMap.getPosition();
-  myMap.populateMap();  
+  if (myMap.mapElement = $("#map-canvas")[0]) {
+    myMap.initialize();
+    myMap.getPosition();
+    myMap.populateMap();    
+
+  }
 });
 
 

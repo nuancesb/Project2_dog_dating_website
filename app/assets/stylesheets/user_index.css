@@ -13,3 +13,10 @@
   height: 500px; 
   border: 1px solid black;
 }
+
+#add_section {
+  height: 100px;
+  box-shadow: 3px 3px 10px #888888;
+  margin: 10px 0 10px 0;
+  text-align: center;
+}
