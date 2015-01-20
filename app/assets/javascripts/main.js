@@ -29,7 +29,7 @@ myMap.populateMap = function() {
           myMap.addMarker({
             lat: value.home_lat,
             lng: value.home_long,
-            icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+            icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
 
             popupContent: value.description
           });
