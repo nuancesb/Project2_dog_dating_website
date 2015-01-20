@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   # removed :registrable
 
   has_many :dogs, dependent: :destroy
+  acts_as_messageable
 
   def self.from_omniauth(auth)
     if user = User.find_by_email(auth.info.email)
@@ -51,4 +52,14 @@ class User < ActiveRecord::Base
   def has_location?
     [home_lat, home_long].all?
   end
+
+  #this is a method for the mailboxer gem
+  def name
+    return nickname
+  end
+
+  def mailboxer_email(object)
+    email
+  end
+
 end
