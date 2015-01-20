@@ -2,7 +2,19 @@
 <h3>Subject: <%= @conversation.subject %></h3>
 <p>Conversation between: <%= @conversation.participants.map(&:name).to_sentence %></p>
 <p><%= render @conversation.messages %></p>
-<!-- Put link here to reply to message -->
 
-<!-- Ask Michael about correct link to reply form. Params need to include user_id and conversation_id in order to display previous messages as part of this conversation. -->
-<%#= link_to 'Reply', reply_to_conversation_path(current_user.id)   %>
+<!-- Move conversation to trash -->
+
+<%# if @conversation.is_trashed?(current_user) %>
+<%#= link_to 'Restore', restore_conversation_path(@conversation), method: :post %>
+<%# else %>
+<%#= link_to 'Move to trash', conversation_path(@conversation), method: :delete,
+data: {confirm: 'Are you sure?'} %>
+<%# end %>
+<p>Reply to this conversation:</p>
+<%= form_tag reply_conversation_path(@conversation) do %>
+<%= text_area_tag :body %>
+<%= submit_tag "Send message"%>
+
+<% end %>
+

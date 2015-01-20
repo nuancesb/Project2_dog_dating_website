@@ -12,7 +12,6 @@ class ConversationsController < ApplicationController
 
 
   def show
-
     @conversation.mark_as_read(current_user)
   end
 
@@ -28,8 +27,13 @@ class ConversationsController < ApplicationController
     #Method to display the conversations
     @messages = @conversation.messages
     #Method to reply to conversation
-     @reply = current_user.reply_to_conversation(@conversation, conversation_params[:body])
+    current_user.reply_to_conversation(@conversation, conversation_params[:body])
 
+    redirect_to conversation_path
+  end
+
+  def destroy
+    @conversation.mark_as_deleted(current_user)
     redirect_to conversation_path
   end
 
