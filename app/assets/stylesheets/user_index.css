@@ -1,3 +1,8 @@
+.main-section {
+  padding-right: 0.1em;
+  padding-left: 0.1em;
+}
+
 h1 .logo {
   font-family: 'Courgette', cursive;
   color: #2C6700;
@@ -10,7 +15,7 @@ h1 .logo {
 }
 
 #map-canvas { 
-  height: 500px; 
+  height: 22em; 
   border: 1px solid black;
 }
 

@@ -625,7 +625,7 @@ $form-label-bottom-margin: 0;
 $input-font-family: inherit;
 $input-font-color: rgba(0,0,0,0.75);
 $input-font-size: rem-calc(14);
-$input-bg-color: $white;
+$input-bg-color: #FFFFFF;
 $input-focus-bg-color: scale-color($white, $lightness: -2%);
 $input-border-color: scale-color($white, $lightness: -20%);
 $input-focus-border-color: scale-color($white, $lightness: -40%);
@@ -806,7 +806,7 @@ $tabbar-bg: $oil;
 $tabbar-height: rem-calc(45);
 $tabbar-icon-width: $tabbar-height;
 $tabbar-line-height: $tabbar-height;
-$tabbar-color: $white;
+$tabbar-color: $smoke;
 $tabbar-middle-padding: 0 rem-calc(10);
 
 // Off Canvas Divider Styles
@@ -814,7 +814,7 @@ $tabbar-right-section-border: solid 1px scale-color($tabbar-bg, $lightness: 13%)
 $tabbar-left-section-border: solid 1px scale-color($tabbar-bg, $lightness: -50%);
 
 // Off Canvas Tab Bar Headers
-$tabbar-header-color: $white;
+$tabbar-header-color: $smoke;
 $tabbar-header-weight: $font-weight-bold;
 $tabbar-header-line-height: $tabbar-height;
 $tabbar-header-margin: 0;
@@ -826,18 +826,18 @@ $off-canvas-bg-hover: scale-color($tabbar-bg, $lightness: -30%);
 
 // Off Canvas Menu List Variables
 $off-canvas-label-padding: 0.3rem rem-calc(15);
-$off-canvas-label-color: $aluminum;
+$off-canvas-label-color: $smoke;
 $off-canvas-label-text-transform: uppercase;
 $off-canvas-label-font-size: rem-calc(12);
 $off-canvas-label-font-weight: $font-weight-bold;
-$off-canvas-label-bg: $tuatara;
-$off-canvas-label-border-top: 1px solid scale-color($tuatara, $lightness: 14%);
+$off-canvas-label-bg: $gainsboro;
+$off-canvas-label-border-top: 1px solid scale-color($gainsboro, $lightness: 14%);
 $off-canvas-label-border-bottom: none;
 $off-canvas-label-margin:0;
 $off-canvas-link-padding: rem-calc(10, 15);
-$off-canvas-link-color: rgba($white, 0.7);
+$off-canvas-link-color: $smoke;
 $off-canvas-link-border-bottom: 1px solid scale-color($off-canvas-bg, $lightness: -25%);
-$off-canvas-back-bg: $tuatara;
+$off-canvas-back-bg: $gainsboro;
 $off-canvas-back-border-top: $off-canvas-label-border-top;
 $off-canvas-back-border-bottom: $off-canvas-label-border-bottom;
 $off-canvas-back-hover-bg: scale-color($off-canvas-back-bg, $lightness: -30%);
@@ -845,7 +845,7 @@ $off-canvas-back-hover-border-top: 1px solid scale-color($off-canvas-label-bg, $
 $off-canvas-back-hover-border-bottom: none;
 
 // Off Canvas Menu Icon Variables
-$tabbar-menu-icon-color: $white;
+$tabbar-menu-icon-color: $smoke;
 $tabbar-menu-icon-hover: scale-color($tabbar-menu-icon-color, $lightness: -30%);
 
 $tabbar-menu-icon-text-indent: rem-calc(35);
