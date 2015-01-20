@@ -14,7 +14,8 @@ data: {confirm: 'Are you sure?'} %>
 <p>Reply to this conversation:</p>
 <%= form_tag reply_conversation_path(@conversation) do %>
 <%= text_area_tag :body %>
-<%= submit_tag "Send message"%>
+<%= submit_tag 'Send message'%>
+<%= submit_tag 'Clear Reply Box', type: :reset%>
 
 <% end %>
 
