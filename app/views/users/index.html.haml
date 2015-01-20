@@ -38,6 +38,7 @@
         %td= user.provider
         %td= user.role
         %td= link_to 'Show', user
+        %td= link_to 'Message me!', new_user_conversation_path(user.id)
 
 
 %br
