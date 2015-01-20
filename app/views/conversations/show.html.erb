@@ -1,6 +1,8 @@
 
 <h3>Subject: <%= @conversation.subject %></h3>
 <p>Conversation between: <%= @conversation.participants.map(&:name).to_sentence %></p>
+<p><%= link_to "Move to Trash", {:controller => "conversations", :action => 
+    "trash", :id => @conversation.id}, :title=> "Move to Trash", :method=>'post' %></p>
 <p><%= render @conversation.messages %></p>
 
 <!-- Move conversation to trash -->
@@ -15,7 +17,7 @@ data: {confirm: 'Are you sure?'} %>
 <%= form_tag reply_conversation_path(@conversation) do %>
 <%= text_area_tag :body %>
 <%= submit_tag 'Send message'%>
-<%= submit_tag 'Clear Reply Box', type: :reset%>
+<%= submit_tag 'Clear reply box', type: :reset%>
 
 <% end %>
 
