@@ -37,6 +37,13 @@ h1 .logo {
 #map-canvas { 
   height: 22em; 
   border: 1px solid black;
+
+
+}
+
+#map-canvas img {
+  max-width: none;
+
 }
 
 #add_section {
@@ -44,4 +51,5 @@ h1 .logo {
   box-shadow: 3px 3px 10px #888888;
   margin: 0.5em 0 0.5em 0;
   text-align: center;
+
 }
