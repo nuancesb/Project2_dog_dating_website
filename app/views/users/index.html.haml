@@ -44,16 +44,17 @@
 %table
   %thead
     %tr
-      %th Sender
       %th Topic
-      %th Date
+      %th Received at
+      %th Sent by
 
   %tbody
   -current_user.mailbox.conversations.each do |conversation|
     %tr
-      / %td=
-      %td= conversation.subject
-      / %td=
+      %td= link_to conversation.subject, conversation_path(conversation)
+      %td= conversation.updated_at.strftime("%I:%M %p %m/%e/%Y")
+      %td= conversation.messages.last.sender.name
+
 
 
 
