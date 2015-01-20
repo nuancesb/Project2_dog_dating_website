@@ -4,6 +4,7 @@ myMap.initialize = function(){
   var mapOptions = {
     center: { lat: 51.52, lng: -0.115 },
     zoom: 14
+    
   };
 
   myMap.map = new google.maps.Map(myMap.mapElement, mapOptions);
@@ -24,11 +25,12 @@ myMap.populateMap = function() {
     {},
     function(data) {
       $.each(data, function(key, value) {
-        if (value.home_lat && value.home_long) {
+        if (value.postcode) {
           myMap.addMarker({
             lat: value.home_lat,
             lng: value.home_long,
             icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+
             popupContent: value.description
           });
         }        
