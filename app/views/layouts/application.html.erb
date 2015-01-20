@@ -17,20 +17,73 @@
 
 <body>
 
+  <div class="off-canvas-wrap" data-offcanvas>
+    <div class="inner-wrap">
+      <nav class="tab-bar">
+        <section class="left-small">
+          <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+        </section>
 
+        <section class="middle tab-bar-section">
+          <h1 class="title"><a href="http://www.date-my-dog.co.uk" class="logo">Date my Dog</a></h1>
+        </section>
 
+        <section class="right-small">
+          <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
+        </section>
+      </nav>
 
-  <div class="row">
-    <%= render partial: "/layouts/header" %>
-  </div>
-  <div class="row"> 
-    <div class="large-12 columns">
-      <%= yield %>
+      <aside class="left-off-canvas-menu">
+        <ul class="off-canvas-list">
+          <li><label>Menu</label></li>
+          <li><%= link_to 'Home', users_path  %></li>
+          <li><a href="#">Search for dogs</a></li>
+          <li><%= link_to "My messages", conversations_path  %></li>
+          <li><a href="#">My favorites</a></li>
+          <li><a href="#">Help - FAQ</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </aside>
+
+      <aside class="right-off-canvas-menu">
+        <ul class="off-canvas-list">
+          <% if current_user %>
+          <li><label><%= current_user.email %></label></li>
+          <li><%= link_to "Edit Profile", edit_profile_path %>
+            </li>
+            <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+          <li><label>Sign in</label></li>
+            <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
+          <% end %>
+        </ul>
+      </aside>
+
+      <section class="main-section">
+         <div class="row">
+           <%#= render partial: "/layouts/header" %>
+           <div class="alerts">
+             <p class="notice"><%= notice %></p>
+             <p class="alert"><%= alert %></p>
+           </div>
+         </div>
+         <div class="row"> 
+           <div class="large-12 columns">
+             <%= yield %>
+           </div>
+         </div>
+         <div class="row">
+           <%= render partial: "/layouts/footer" %>
+         </div>
+      </section>
+
+    <a class="exit-off-canvas"></a>
+
     </div>
   </div>
-  <div class="row">
-    <%= render partial: "/layouts/footer" %>
-  </div>
+
+
+ 
 
 <%= javascript_include_tag "application" %>
 </body>
