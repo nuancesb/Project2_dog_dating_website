@@ -24,8 +24,8 @@ class ConversationsController < ApplicationController
   end
 
   def reply
-   
     @conversation = current_user.mailbox.conversations.find(params[:id])
+    #Method to display the conversations
     @messages = @conversation.messages
     #Method to reply to conversation
      @reply = current_user.reply_to_conversation(@conversation, conversation_params[:body])
