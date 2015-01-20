@@ -72,11 +72,11 @@ myMap.addMarker = function(data){
   var popup = new google.maps.InfoWindow(popupOptions);
 
   
-  google.maps.event.addListener(marker, "mouseover", function(){
+  google.maps.event.addListener(marker, "click", function(){
     popup.open(myMap.map, marker);
   });
 
-  google.maps.event.addListener(marker, "mouseout", function(){
+  google.maps.event.addListener(marker, "mouseover", function(){
     popup.close(myMap.map, marker);
   });
   popup.open(myMap.map, marker);
