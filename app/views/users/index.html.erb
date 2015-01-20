@@ -84,7 +84,7 @@
       <th>Sent by</th>
     </tr>
   </thead>
-  <tbody></tbody>
+<tbody>
   <% current_user.mailbox.conversations.each do |conversation| %>
     <tr>
       <td>
@@ -98,5 +98,6 @@
       </td>
     </tr>
   <% end %>
+  </tbody>
 </table>
 

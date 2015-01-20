@@ -1,18 +1,11 @@
 
 <h3>Subject: <%= @conversation.subject %></h3>
 <p>Conversation between: <%= @conversation.participants.map(&:name).to_sentence %></p>
-<%= link_to "Move to Trash", {:controller => "conversations", :action => 
-    "trash", :id => @conversation.id}, :title=> "Move to Trash", :method=>'post' %>
+<%= link_to "Delete conversation", {:controller => "conversations", :action => 
+    "trash", :id => @conversation.id}, :title=> "Delete", :method=>'post' %>
 <p><%= render @conversation.messages %></p>
 
-<!-- Move conversation to trash -->
 
-<%# if @conversation.is_trashed?(current_user) %>
-<%#= link_to 'Restore', restore_conversation_path(@conversation), method: :post %>
-<%# else %>
-<%#= link_to 'Move to trash', conversation_path(@conversation), method: :delete,
-data: {confirm: 'Are you sure?'} %>
-<%# end %>
 <p>Reply to this conversation:</p>
 <%= form_tag reply_conversation_path(@conversation) do %>
 <%= text_area_tag :body %>
