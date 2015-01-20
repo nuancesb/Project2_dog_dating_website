@@ -20,6 +20,7 @@ gem 'fog', '~> 1.3.1'
 gem 'rails_12factor', group: :production
 gem 'mailboxer'
 gem 'geocoder'
+gem 'foundation-rails'
 
 
 

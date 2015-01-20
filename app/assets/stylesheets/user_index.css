@@ -1,0 +1,11 @@
+.logo {
+  font-family: 'Courgette', cursive;
+  color: #FCA504;
+  font-size: 2em;
+  text-align: center;
+}
+
+#map-canvas { 
+  height: 500px; 
+  border: 1px solid black;
+}

@@ -2,11 +2,13 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable,
   :recoverable, :rememberable, :trackable, :validatable, 
   :omniauthable, omniauth_providers: [:facebook]
+  # removed :registrable
 
   has_many :dogs, dependent: :destroy
+  acts_as_messageable
 
   def self.from_omniauth(auth)
     if user = User.find_by_email(auth.info.email)
@@ -46,6 +48,19 @@ class User < ActiveRecord::Base
 
   def role?(role_to_compare)
     self.role.to_s == role_to_compare.to_s
+  end
+
+  def has_location?
+    [home_lat, home_long].all?
+  end
+
+  #this is a method for the mailboxer gem
+  def name
+    return nickname
+  end
+
+  def mailboxer_email(object)
+    email
   end
 
 end

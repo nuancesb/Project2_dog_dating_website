@@ -8,11 +8,12 @@
         <div class='login'>
             <% if current_user %>
               <%= current_user.email %>
+              <%= current_user.id %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete %>
             <% else %>
-              <%= link_to "Sign In", new_user_session_path %>
-              <%= link_to "Register", new_user_registration_path %>
-              or
+              <%#= link_to "Sign In", new_user_session_path %>
+              <%#= link_to "Register", new_user_registration_path %>
+             <!--  or -->
               <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
             <% end %>
           </div>
@@ -26,7 +27,7 @@
   </nav>
 </div>
 <div class="messages">
-  <a href="#">Messages</a>
+  <%= link_to "Messages", conversations_path %>
 </div>
 <div class="alerts">
 <p class="notice"><%= notice %></p>
