@@ -1,9 +1,28 @@
 <div class="row">
   <div class="large-12 columns">
+
+  <% if current_user.mailbox.inbox({:read => false}).count == 1 %>
+  <div class ='blink'>
+  <%= link_to '1 new message!', conversations_path   %>
+  </div> 
+  <% elsif current_user.mailbox.inbox({:read => false}).count > 1 %>
+  <div class ='blink'>
+  <%= link_to "#{current_user.mailbox.inbox({:read => false}).count.to_s} new messages!", conversations_path %>
+  </div> 
+  <% else %>
+
+  <% end %>
+  <br>
+  </div>
+</div>  
+
+<div class="row">
+  <div class="large-12 columns">
     <section id="map-canvas"></section>
   </div>
 </div>
-<!-- ALL BELOW TO BE DELETED FROM FINAL APP -->
+
+  <!-- ALL BELOW TO BE DELETED FROM FINAL APP -->
 <h1>Listing Users</h1>
 <table>
   <thead>
@@ -26,6 +45,7 @@
   </thead>
   <tbody>
     <% @users.each do |user| %>
+
       <tr>
         <td>
           <%= link_to image_tag(user.image.thumb.url, alt: "user image"), user %>
@@ -79,6 +99,7 @@
     <% end %>
   </tbody>
 </table>
+<!-- DELETE UP TO HERE -->
 <h2>My latest messages</h2>
 <table>
   <thead>
@@ -88,8 +109,8 @@
       <th>Sent by</th>
     </tr>
   </thead>
-  <tbody></tbody>
-  <% current_user.mailbox.conversations.each do |conversation| %>
+  <tbody>
+    <% current_user.mailbox.conversations.each do |conversation| %>
     <tr>
       <td>
         <%= link_to conversation.subject, conversation_path(conversation) %>
@@ -101,6 +122,7 @@
         <%= conversation.messages.last.sender.name %>
       </td>
     </tr>
-  <% end %>
+    <% end %>
+  </tbody>
 </table>
-<!-- DELETE UP TO HERE -->
+

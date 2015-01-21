@@ -24,14 +24,16 @@ myMap.populateMap = function() {
     '/users',
     {},
     function(data) {
-      $.each(data, function(key, value) {
-        if (value.postcode) {
+      $.each(data, function(key, user) {
+        if (user.postcode) {
           myMap.addMarker({
-            lat: value.home_lat,
-            lng: value.home_long,
+            lat: user.home_lat,
+            lng: user.home_long,
             icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
 
-            popupContent: value.description
+            popupContent: '<a href="/users/' + user.id + '">'+ user.name + '</a><br/>' +
+              '<a href="/users/' + user.id + '/conversations/new">Message me!</a>'
+
           });
         }        
       });
@@ -39,6 +41,12 @@ myMap.populateMap = function() {
     'json'
     );
 }
+
+
+
+// var infowindow = new google.maps.InfoWindow({
+//   content: '<a href="/businesses/' + business.id + '">' + business.business_name + '</a><br/>' + 'Phone: ' + business.phone
+// });
 
 myMap.geolocationFail = function(position){
   console.log('failed to geolocate');
