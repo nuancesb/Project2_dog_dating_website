@@ -24,7 +24,8 @@
     <div class="inner-wrap">
       <nav class="tab-bar">
         <section class="left-small">
-          <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+          <a class="left-off-canvas-toggle menu-icon" href="#"><span ></span></a>
+          <p class="menu_title">Menu</p>
         </section>
 
         <section class="middle tab-bar-section">
@@ -32,16 +33,24 @@
         </section>
 
         <section class="right-small">
-          <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
+          <a class="right-off-canvas-toggle" href="#"><span><%= image_tag('Magnifyer_Glass.png') %></span></a>
         </section>
       </nav>
 
       <aside class="left-off-canvas-menu">
         <ul class="off-canvas-list">
           <li><label>Menu</label></li>
+          <% if current_user %>
+          <li><label><%= current_user.email %></label></li>
+          <li><%= link_to "Edit Profile", edit_profile_path %>
+            </li>
+            <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+          <li><label>Sign in</label></li>
+            <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
+          <% end %>
           <% if user_signed_in? %>
           <li><%= link_to 'Home', users_path  %></li>
-          <li><a href="#">Search for dogs</a></li>
           <li><%= link_to "My messages", conversations_path  %></li>
           <li><a href="#">My favorites</a></li>
           <% end %>
@@ -52,22 +61,12 @@
 
       <aside class="right-off-canvas-menu">
         <ul class="off-canvas-list">
-          <% if current_user %>
-          <li><label><%= current_user.email %></label></li>
-          <li><%= link_to "Edit Profile", edit_profile_path %>
-            </li>
-            <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-          <% else %>
-          <li><label>Sign in</label></li>
-            <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
-          <% end %>
+          <li><a href="#">Search for dogs</a></li>
         </ul>
       </aside>
 
       <section class="main-section">
          <div class="row">
-          <!-- CAN REMOVE THE PARTIAL -->
-           <%#= render partial: "/layouts/header" %>
            <div class="alerts">
              <p class="notice"><%= notice %></p>
              <p class="alert"><%= alert %></p>

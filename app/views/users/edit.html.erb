@@ -19,7 +19,7 @@
 <div class="row">
   <div class="field, large-3 columns">
     <%= f.label :image, 'Select the image file or url:' %><br>
-    <%= image_tag(@user.image, width: "80em", class: "user_pic", alt: "user image") %>
+    <%= image_tag(@user.image.thumb.url, width: "80em", class: "user_pic", alt: "user image") %>
     <%= f.file_field :image %>
     <%= f.text_field :remote_image_url, value: nil, placeholder: 'or paste url here' %>
   </div>
