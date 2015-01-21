@@ -59,6 +59,10 @@ class User < ActiveRecord::Base
     [home_lat, home_long].all?
   end
 
+  def has_postcode?
+    postcode?
+  end
+
   def current_user_log?
     current_user?
   end
