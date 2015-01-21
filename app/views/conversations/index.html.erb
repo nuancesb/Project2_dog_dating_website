@@ -4,6 +4,10 @@
 <% if @inbox.any? %>
 <% @inbox.each do |inbox| %>
 <%= link_to inbox.subject, conversation_path(inbox)  %>
+<%= 'New message!' if inbox.is_unread?(current_user) %>
+    <%= 'Message was read' if inbox.is_read?(current_user) %>
+    <div>Received at:</div>
+    <%= inbox.updated_at.strftime("%I:%M %p %m/%e/%Y") %>
 <% end %>
 <% else %>
 <%= 'You have no messages!' %>
@@ -14,6 +18,8 @@
 <% if @sentmessages.any? %>
 <% @sentmessages.each do |sent| %>
 <%= link_to sent.subject, conversation_path(sent)  %>
+<div>Sent at:</div>
+<%= sent.updated_at.strftime("%I:%M %p %m/%e/%Y") %>
 <% end %>
 <% else %>
 <%= "You haven't started any conversations." %>
