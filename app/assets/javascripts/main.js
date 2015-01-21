@@ -20,6 +20,16 @@ myMap.getPosition = function(){
 }
 
 myMap.populateMap = function() {
+  function dogContent(user) {
+    var returnString = '';
+
+    $.each(user.dogs, function(key, dog) {
+      returnString += '<br>' + dog.name;
+    });
+
+    return returnString;
+  }
+
   $.get(
     '/users',
     {},
@@ -32,7 +42,7 @@ myMap.populateMap = function() {
             icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
 
             popupContent: '<a href="/users/' + user.id + '">'+ user.name + '</a><br/>' +
-              '<a href="/users/' + user.id + '/conversations/new">Message me!</a>'
+              '<a href="/users/' + user.id + '/conversations/new">Message me!</a><br/>' + dogContent(user)
 
           });
         }        
