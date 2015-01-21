@@ -6,8 +6,11 @@ class DogsController < ApplicationController
   respond_to :html
 
   def index
-    @dogs = Dog.all
-    respond_with(@dogs)
+    # @dogs = Dog.all
+    @q = Dog.ransack(params[:q])
+    @dogs = @q.result(distinct: true)
+
+    # respond_with(@dogs)
   end
 
   def show
