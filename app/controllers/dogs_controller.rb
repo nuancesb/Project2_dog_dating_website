@@ -9,7 +9,6 @@ class DogsController < ApplicationController
     # @dogs = Dog.all
     @q = Dog.ransack(params[:q])
     @dogs = @q.result(distinct: true)
-
     # respond_with(@dogs)
   end
 

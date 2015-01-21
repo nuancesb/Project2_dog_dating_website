@@ -3,15 +3,15 @@
 <%= search_form_for @q do |f| %>
   <p>
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name_cont %>
   </p>
   <p>
     <%= f.label :sex %>
-    <%= f.text_field :sex %>
+    <%= f.text_field :sex_cont %>
   </p>
   <p>
     <%= f.label :breed %>
-    <%= f.text_field :breed %>
+    <%= f.text_field :breed_cont %>
   </p>
   <p>
     <%= f.submit %>
@@ -23,8 +23,7 @@
       <th>Name</th>
       <th>Sex</th>
       <th>Breed</th>
-      <th></th>
-      <th></th>
+
     </tr>
   </thead>
   <tbody>
