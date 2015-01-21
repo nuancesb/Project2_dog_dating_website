@@ -1,3 +1,11 @@
+<div class ='new_message_alert'>
+  <% if current_user.mailbox.inbox({:read => false}).count == 1 %>
+  <%= link_to '1 new message!', conversations_path   %>
+  <% elsif current_user.mailbox.inbox({:read => false}).count > 1 %>
+  <%= link_to "#{current_user.mailbox.inbox({:read => false}).count.to_s} new messages!", conversations_path %> 
+  <% else %>
+  <% end %>
+</div>
 
 <section id="map-canvas"></section>
 <h1>Listing Users</h1>
@@ -22,56 +30,56 @@
   </thead>
   <tbody>
     <% @users.each do |user| %>
-      <tr>
-        <td>
-          <%= link_to image_tag(user.image, alt: "user image"), user %>
-        </td>
-        <td>
-          <%= user.id %>
-        </td>
-        <td>
-          <%= user.nickname %>
-        </td>
-        <td>
-          <%= user.name %>
-        </td>
-        <td>
-          <%= user.gender %>
-        </td>
-        <td>
-          <%= user.first_name %>
-        </td>
-        <td>
-          <%= user.last_name %>
-        </td>
-        <td>
-          <%= user.location %>
-        </td>
-        <td>
-          <%= user.postcode %>
-        </td>
-        <td>
-          <%= user.home_lat %>
-        </td>
-        <td>
-          <%= user.home_long %>
-        </td>
-        <td>
-          <%= user.description %>
-        </td>
-        <td>
-          <%= user.provider %>
-        </td>
-        <td>
-          <%= user.role %>
-        </td>
-        <td>
-          <%= link_to 'Show', user_path(user.id) %>
-        </td>
-        <td>
-          <%= link_to 'Message me!', new_user_conversation_path(user.id) %>
-        </td>
-      </tr>
+    <tr>
+      <td>
+        <%= link_to image_tag(user.image, alt: "user image"), user %>
+      </td>
+      <td>
+        <%= user.id %>
+      </td>
+      <td>
+        <%= user.nickname %>
+      </td>
+      <td>
+        <%= user.name %>
+      </td>
+      <td>
+        <%= user.gender %>
+      </td>
+      <td>
+        <%= user.first_name %>
+      </td>
+      <td>
+        <%= user.last_name %>
+      </td>
+      <td>
+        <%= user.location %>
+      </td>
+      <td>
+        <%= user.postcode %>
+      </td>
+      <td>
+        <%= user.home_lat %>
+      </td>
+      <td>
+        <%= user.home_long %>
+      </td>
+      <td>
+        <%= user.description %>
+      </td>
+      <td>
+        <%= user.provider %>
+      </td>
+      <td>
+        <%= user.role %>
+      </td>
+      <td>
+        <%= link_to 'Show', user_path(user.id) %>
+      </td>
+      <td>
+        <%= link_to 'Message me!', new_user_conversation_path(user.id) %>
+      </td>
+    </tr>
     <% end %>
   </tbody>
 </table>
@@ -84,8 +92,8 @@
       <th>Sent by</th>
     </tr>
   </thead>
-<tbody>
-  <% current_user.mailbox.conversations.each do |conversation| %>
+  <tbody>
+    <% current_user.mailbox.conversations.each do |conversation| %>
     <tr>
       <td>
         <%= link_to conversation.subject, conversation_path(conversation) %>
@@ -97,7 +105,7 @@
         <%= conversation.messages.last.sender.name %>
       </td>
     </tr>
-  <% end %>
+    <% end %>
   </tbody>
 </table>
 
