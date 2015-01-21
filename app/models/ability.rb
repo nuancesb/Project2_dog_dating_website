@@ -9,6 +9,7 @@ class Ability
             can :read, :all
             can :update, User, id: user.id 
             can :destroy, User, id: user.id
+            can :create, Dog, user_id: user.id
             can :edit, Dog, user_id: user.id 
             can :update, Dog, user_id: user.id 
             can :destroy, Dog, user_id: user.id 

@@ -40,6 +40,13 @@
       <aside class="left-off-canvas-menu">
         <ul class="off-canvas-list">
           <li><label>Menu</label></li>
+          <% if user_signed_in? %>
+          <li><%= link_to 'Home', users_path  %></li>
+          <li><%= link_to "My messages", conversations_path  %></li>
+          <li><a href="#">My favorites</a></li>
+          <% end %>
+          <li><a href="#">Help - FAQ</a></li>
+          <li><a href="#">About</a></li>
           <% if current_user %>
           <li><label><%= current_user.email %></label></li>
           <li><%= link_to "Edit Profile", edit_profile_path %>
@@ -49,13 +56,6 @@
           <li><label>Sign in</label></li>
             <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
           <% end %>
-          <% if user_signed_in? %>
-          <li><%= link_to 'Home', users_path  %></li>
-          <li><%= link_to "My messages", conversations_path  %></li>
-          <li><a href="#">My favorites</a></li>
-          <% end %>
-          <li><a href="#">Help - FAQ</a></li>
-          <li><a href="#">About</a></li>
         </ul>
       </aside>
 
