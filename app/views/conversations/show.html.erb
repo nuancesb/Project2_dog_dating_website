@@ -3,6 +3,7 @@
 <p>Conversation between: <%= @conversation.participants.map(&:name).to_sentence %></p>
 <%= link_to "Delete conversation", {:controller => "conversations", :action => 
     "trash", :id => @conversation.id}, :title=> "Delete", :method=>'post',  data: {confirm: "Are you sure you want to delete this conversation? Once it's gone, it's gone!"} %>
+<%= link_to "Back to my messages", conversations_path %>
 <p><%= render @conversation.messages %></p>
 
 
