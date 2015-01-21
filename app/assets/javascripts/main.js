@@ -24,14 +24,16 @@ myMap.populateMap = function() {
     '/users',
     {},
     function(data) {
-      $.each(data, function(key, value) {
-        if (value.postcode) {
+      $.each(data, function(key, user) {
+        if (user.postcode) {
           myMap.addMarker({
-            lat: value.home_lat,
-            lng: value.home_long,
+            lat: user.home_lat,
+            lng: user.home_long,
             icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
 
-            popupContent: value.description
+            popupContent: '<a href="/users/' + user.id + '">'+ user.name + '</a><br/>' +
+              '<a href="/users/' + user.id + '/conversations/new">Message me!</a>'
+
           });
         }        
       });
@@ -39,6 +41,12 @@ myMap.populateMap = function() {
     'json'
     );
 }
+
+
+
+// var infowindow = new google.maps.InfoWindow({
+//   content: '<a href="/businesses/' + business.id + '">' + business.business_name + '</a><br/>' + 'Phone: ' + business.phone
+// });
 
 myMap.geolocationFail = function(position){
   console.log('failed to geolocate');
@@ -83,6 +91,20 @@ myMap.addMarker = function(data){
 
 }
 
+myMap.userInitialize = function() {
+  // var myApp.userHomeLat = $(#user_home_lat).text();
+  // console.log(myApp.userHomeLat);
+  // var myApp.userHomeLng = $(#user_home_long).text();
+  // console.log(myApp.userHomeLng);
+  // var mapOptions = {
+  //   center: { lat: 51.52, lng: -0.115 },
+  //   zoom: 5
+
+  // };
+
+  // myMap.map = new google.maps.Map(myMap.mapElement, mapOptions);
+
+};
 
 $(function(){
   if (myMap.mapElement = $("#map-canvas")[0]) {
@@ -90,6 +112,10 @@ $(function(){
     myMap.getPosition();
     myMap.populateMap();    
 
+  }
+  if (myMap.mapElement = $("#map-user")[0]) {
+    myMap.userInitialize();
+    // myMap.userMapp();    
   }
 });
 

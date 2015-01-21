@@ -1,14 +1,48 @@
-<p id="notice">
-  <%= notice %>
-</p>
-<p>
-  <b>Name:</b>
-  <%= @dog.name %>
-</p>
-<p>
-  <b>User:</b>
-  <%= @dog.user %>
-</p>
+<div class="large-4 columns">
+  <div class="row">
+    <div class="large-12 columns">
+      <%= image_tag(@dog.picture.detail.url, width: "80em", alt: "Dog image") %>
+    </div>  
+  </div> 
+  <div class="row">
+    <div class="large-12 columns">
+      <%= audio_tag(@dog.sound, autoplay: false, controls: true, class: "dog_sound")  %>
+    </div>
+  </div>
+</div>
+<div class="large-8 columns">
+  <div class="row">
+    <div class="large-3 columns">
+      <h4><%= @dog.name %></h4>
+    </div>
+    <div class="large-3 columns">
+      <h4><%= @dog.sex %></h4>
+    </div>
+    <div class="large-3 columns">
+     <h4> <%= @dog.breed %></h4>
+    </div>
+    <div class="large-3 columns">
+      <h4><%= @dog.dob %></h4>  
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-9 columns">
+      <%= @dog.description %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-9 columns">
+      <h4>Dog owner: 
+      <%= link_to User.find(@dog.user_id).nickname, user_path(@dog.user_id) %></h4>
+    </div>
+  </div>
+</div>
+</div>
+<div class="row">
+  <br>
+</div>
+
+</div>
 <%= link_to 'Edit', edit_dog_path(@dog) %>
 \|
 <%= link_to 'Back', dogs_path %>

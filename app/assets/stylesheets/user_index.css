@@ -10,20 +10,54 @@ h1 .logo {
   text-align: center;
 }
 
+.FB-sign-in {
+  font-size: 2em;
+  text-align: center;
+  box-shadow: 3px 3px 10px #888888;
+  background-color: #FCA504;
+  padding: 1em 2em 1em 2em;
+}
+
 .email_log {
   color: #2C6700;
+}
+
+.column .large-centered {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; 
+}
+
+.column .medium-centered {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; 
+}
+
+.menu_title {
+  position: relative;
+  left: 3.2em;
+  top: -2.1em;
+}
+
+.display_none {
+  /*display: none;*/
 }
 
 #map-canvas { 
   height: 22em; 
   border: 1px solid black;
-
-
 }
 
 #map-canvas img {
   max-width: none;
 
+}
+
+#map-user {
+  height: 8em; 
+  border: 1px solid black;
+  margin: 1em 0 1em 0;
 }
 
 #add_section {
