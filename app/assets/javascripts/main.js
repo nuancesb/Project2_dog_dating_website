@@ -3,7 +3,7 @@ var myMap = myMap || {};
 myMap.initialize = function(){
   var mapOptions = {
     center: { lat: 51.52, lng: -0.115 },
-    zoom: 5
+    zoom: 5,
 
   };
 
@@ -83,19 +83,23 @@ myMap.addMarker = function(data){
 
 }
 
-myMap.userInitialize = function() {
-  // var myApp.userHomeLat = $(#user_home_lat).text();
-  // console.log(myApp.userHomeLat);
-  // var myApp.userHomeLng = $(#user_home_long).text();
-  // console.log(myApp.userHomeLng);
-  // var mapOptions = {
-  //   center: { lat: 51.52, lng: -0.115 },
-  //   zoom: 5
-
-  // };
-
-  // myMap.map = new google.maps.Map(myMap.mapElement, mapOptions);
-
+myMap.userMap = function() {
+  myMap.userHomeLat = parseFloat($('#user_home_lat').text());
+  myMap.userHomeLng = parseFloat($('#user_home_long').text());
+  var mapUserOptions = {
+  center: { lat: myMap.userHomeLat, lng: myMap.userHomeLng },
+    zoom: 7,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    streetViewControl: false, 
+    mapTypeControl: false 
+  };
+  myMap.map = new google.maps.Map(myMap.mapUserElement, mapUserOptions);
+  var markerUserOptions = {
+      position: new google.maps.LatLng(myMap.userHomeLat, myMap.userHomeLng)
+    }
+  var markerUser = new google.maps.Marker(markerUserOptions);
+  markerUser.setMap(myMap.map)
+  
 };
 
 $(function(){
@@ -105,9 +109,8 @@ $(function(){
     myMap.populateMap();    
 
   }
-  if (myMap.mapElement = $("#map-user")[0]) {
-    myMap.userInitialize();
-    // myMap.userMapp();    
+  if (myMap.mapUserElement = $("#map-user")[0]) {
+    myMap.userMap();    
   }
 });
 

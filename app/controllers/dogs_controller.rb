@@ -16,6 +16,7 @@ class DogsController < ApplicationController
 
   def new
     @dog = Dog.new
+    @dog.user_id = params[:user_id].to_i
     respond_with(@dog)
   end
 

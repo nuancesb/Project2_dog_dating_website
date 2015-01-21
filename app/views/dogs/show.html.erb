@@ -6,7 +6,21 @@
   </div> 
   <div class="row">
     <div class="large-12 columns">
+      <br>
+      Listen to me:
       <%= audio_tag(@dog.sound, autoplay: false, controls: true, class: "dog_sound")  %>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <% if  @dog.user_id == current_user.id %>
+        <%= link_to 'Edit', edit_dog_path(@dog), class: "button tiny" %>
+      <% end %>
+      <%= link_to 'Back', :back, class: "button tiny" %>
+      <% if  @dog.user_id != current_user.id %>
+      <%= link_to 'Message my Owner!', new_user_conversation_path(@dog.user_id), class: "button tiny alert" %>
+      <% end %>
     </div>
   </div>
 </div>
@@ -19,7 +33,7 @@
       <h4><%= @dog.sex %></h4>
     </div>
     <div class="large-3 columns">
-     <h4> <%= @dog.breed %></h4>
+     <h4>Breed: <%= @dog.breed %></h4>
     </div>
     <div class="large-3 columns">
       <h4><%= @dog.dob %></h4>  
@@ -43,7 +57,4 @@
 </div>
 
 </div>
-<%= link_to 'Edit', edit_dog_path(@dog) %>
-\|
-<%= link_to 'Back', dogs_path %>
 
