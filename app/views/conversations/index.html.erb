@@ -1,2 +1,21 @@
 <h1>My messages</h1>
-<%= render @conversations %>
+
+<h2>Received messages</h2>
+<% if @inbox.any? %>
+<% @inbox.each do |inbox| %>
+<%= link_to inbox.subject, conversation_path(inbox)  %>
+<% end %>
+<% else %>
+<%= 'You have no messages!' %>
+<% end %>
+
+
+<h2>Conversations I started</h2>
+<% if @sentmessages.any? %>
+<% @sentmessages.each do |sent| %>
+<%= link_to sent.subject, conversation_path(sent)  %>
+<% end %>
+<% else %>
+<%= "You haven't started any conversations." %>
+<% end %>
+
