@@ -13,9 +13,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # respond_to do |format|
-    # format.html
-    # format.json { render :json => @users.to_json(:only => [:id, :user_name, :phone, :latitude, :longitude], :methods => [:to_param]) }
+   
   end
 
   def edit
