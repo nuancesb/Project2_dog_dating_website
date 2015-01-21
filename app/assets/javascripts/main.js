@@ -31,7 +31,7 @@ myMap.populateMap = function() {
             lng: value.home_long,
             icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
 
-            popupContent: value.description
+            popupContent: '<a href="/users/' + value.id + '">'+ value.description + '</a>'
           });
         }        
       });
@@ -39,6 +39,11 @@ myMap.populateMap = function() {
     'json'
     );
 }
+
+
+// var infowindow = new google.maps.InfoWindow({
+//   content: '<a href="/businesses/' + business.id + '">' + business.business_name + '</a><br/>' + 'Phone: ' + business.phone
+// });
 
 myMap.geolocationFail = function(position){
   console.log('failed to geolocate');
