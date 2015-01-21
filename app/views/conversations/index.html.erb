@@ -1,27 +1,55 @@
-<h1>My messages</h1>
+<div class='row'>
+  <div class="large-12 columns">
+    <h2>My messages</h2>
+  </div>
+</div>
+<div class='row'>
+  <div class="large-12 columns">
+    <h3>Received messages</h3>
+  </div>
+</div>
 
-<h2>Received messages</h2>
 <% if @inbox.any? %>
 <% @inbox.each do |inbox| %>
-<%= link_to inbox.subject, conversation_path(inbox)  %>
-<%= 'New message!' if inbox.is_unread?(current_user) %>
-    <%= 'Message was read' if inbox.is_read?(current_user) %>
-    <div>Received at:</div>
-    <%= inbox.updated_at.strftime("%I:%M %p %m/%e/%Y") %>
+<div class='row'>
+  <div class="large-4 columns">
+    <%= link_to inbox.subject, conversation_path(inbox)  %>
+  </div> 
+  <div class="large-4 columns">
+   Received at:
+   <%= inbox.updated_at.strftime("%I:%M %p %m/%e/%Y") %>
+ </div> 
+ <div class="large-4 columns">
+  <%= 'New message!' if inbox.is_unread?(current_user) %>
+  <%= 'Message was read' if inbox.is_read?(current_user) %>
+</div>
+</div>
 <% end %>
 <% else %>
 <%= 'You have no messages!' %>
 <% end %>
+<br>
 
-
-<h2>Conversations I started</h2>
+<div class='row'>
+  <div class="large-12 columns">
+    <h3>Conversations I started</h3>
+  </div>
+</div>
 <% if @sentmessages.any? %>
 <% @sentmessages.each do |sent| %>
+<div class='row'>
+  <div class="large-4 columns">
 <%= link_to sent.subject, conversation_path(sent)  %>
-<div>Sent at:</div>
+</div> 
+<div class="large-8 columns">
+Sent at:
 <%= sent.updated_at.strftime("%I:%M %p %m/%e/%Y") %>
+</div> 
+</div>
 <% end %>
 <% else %>
 <%= "You haven't started any conversations." %>
 <% end %>
+<br>
+
 
