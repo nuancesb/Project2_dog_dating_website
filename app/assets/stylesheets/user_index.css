@@ -40,16 +40,24 @@ h1 .logo {
   top: -2.1em;
 }
 
+.display_none {
+  /*display: none;*/
+}
+
 #map-canvas { 
   height: 22em; 
   border: 1px solid black;
-
-
 }
 
 #map-canvas img {
   max-width: none;
 
+}
+
+#map-user {
+  height: 8em; 
+  border: 1px solid black;
+  margin: 1em 0 1em 0;
 }
 
 #add_section {

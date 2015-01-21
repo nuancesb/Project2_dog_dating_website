@@ -83,6 +83,20 @@ myMap.addMarker = function(data){
 
 }
 
+myMap.userInitialize = function() {
+  // var myApp.userHomeLat = $(#user_home_lat).text();
+  // console.log(myApp.userHomeLat);
+  // var myApp.userHomeLng = $(#user_home_long).text();
+  // console.log(myApp.userHomeLng);
+  // var mapOptions = {
+  //   center: { lat: 51.52, lng: -0.115 },
+  //   zoom: 5
+
+  // };
+
+  // myMap.map = new google.maps.Map(myMap.mapElement, mapOptions);
+
+};
 
 $(function(){
   if (myMap.mapElement = $("#map-canvas")[0]) {
@@ -90,6 +104,10 @@ $(function(){
     myMap.getPosition();
     myMap.populateMap();    
 
+  }
+  if (myMap.mapElement = $("#map-user")[0]) {
+    myMap.userInitialize();
+    // myMap.userMapp();    
   }
 });
 
