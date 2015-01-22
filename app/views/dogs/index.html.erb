@@ -1,55 +1,64 @@
-<h1>Listing dogs</h1>
+<div class='row'>
+  <div class="large-12 columns">
+    <h1>Find your perfect dog match</h1>
+  </div>
+</div>
 
 <%= search_form_for @q do |f| %>
-  <p>
+<div class='row'>
+  <div class="large-4 columns">
+
     <%= f.label :name %>
     <%= f.text_field :name_cont %>
-  </p>
-  <p>
+  </div>
+  <div class="large-4 columns">
     <%= f.label :sex %>
-    <%= f.text_field :sex_cont %>
-  </p>
-  <p>
+    <%= f.text_field :sex_start %>
+  </div>
+  <div class="large-4 columns">
     <%= f.label :breed %>
     <%= f.text_field :breed_cont %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
+  </div>
+</div>
+<div class='row'>
+ <div class="large-6 columns">
+  <%= f.submit class: 'small button'%>
+</div>
+</div>
 <% end %>
-<table>
+
+<div class='row'>
+  <div class="large-12 columns">
+    <h2>Search results</h2>
+  </div>
+</div>
+
+<% if @dogs.any? %>
+<table class='large-8 colums'>
   <thead>
     <tr>
       <th>Name</th>
       <th>Sex</th>
       <th>Breed</th>
-
     </tr>
   </thead>
   <tbody>
     <% @dogs.each do |dog| %>
-      <tr>
-        <td>
-          <%= dog.name %>
-        </td>
-        <td>
-          <%= dog.sex %>
-        </td>
-        <td>
-          <%= dog.breed %>
-        </td>
-        <td>
-          <%= link_to 'Show', dog %>
-        </td>
-        <td>
-          <%= link_to 'Edit', edit_dog_path(dog) %>
-        </td>
-        <td>
-          <%= link_to 'Destroy', dog, :method => :delete, :data => { :confirm => 'Are you sure?' } %>
-        </td>
-      </tr>
+    <tr>
+      <td>
+        <%= link_to "#{dog.name}", dog %>
+      </td>
+      <td>
+        <%= dog.sex %>
+      </td>
+      <td>
+        <%= dog.breed %>
+      </td>
+    </tr>
     <% end %>
   </tbody>
-</table>
-<br/>
-<%= link_to 'New Dog', new_dog_path %>
+  </table>
+  <% else %>
+  <p> Sorry, no results for your search. Maybe try a broader search or <%= link_to "go to the map", users_path%> to find dogs in your area.</p>
+  <% end %>
+

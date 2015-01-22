@@ -6,36 +6,48 @@ class DogsController < ApplicationController
   respond_to :html
 
   def index
-    # @dogs = Dog.all
+
     @q = Dog.ransack(params[:q])
     @dogs = @q.result(distinct: true)
-    # respond_with(@dogs)
+  
   end
 
   def show
+    @q = Dog.ransack(params[:q])
+    @dogs = @q.result(distinct: true)
     respond_with(@dog)
   end
 
   def new
+    @q = Dog.ransack(params[:q])
+    @dogs = @q.result(distinct: true)
     @dog = Dog.new
     respond_with(@dog)
   end
 
   def edit
+    @q = Dog.ransack(params[:q])
+    @dogs = @q.result(distinct: true)
   end
 
   def create
+    @q = Dog.ransack(params[:q])
+    @dogs = @q.result(distinct: true)
     @dog = Dog.new(dog_params)
     @dog.save
     respond_with(@dog)
   end
 
   def update
+    @q = Dog.ransack(params[:q])
+    @dogs = @q.result(distinct: true)
     @dog.update(dog_params)
     respond_with(@dog)
   end
 
   def destroy
+    @q = Dog.ransack(params[:q])
+    @dogs = @q.result(distinct: true)
     @dog.destroy
     respond_with(@dog)
   end

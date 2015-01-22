@@ -843,7 +843,6 @@ $off-canvas-back-border-bottom: $off-canvas-label-border-bottom;
 $off-canvas-back-hover-bg: scale-color($off-canvas-back-bg, $lightness: -30%);
 $off-canvas-back-hover-border-top: 1px solid scale-color($off-canvas-label-bg, $lightness: 14%);
 $off-canvas-back-hover-border-bottom: none;
-
 // Off Canvas Menu Icon Variables
 $tabbar-menu-icon-color: $smoke;
 $tabbar-menu-icon-hover: scale-color($tabbar-menu-icon-color, $lightness: -30%);
