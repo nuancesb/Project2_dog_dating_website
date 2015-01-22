@@ -1,8 +1,8 @@
-  <h1>My favorite dogs</h1>
+  <h1>My favourite dogs</h1>
   <div class="row">
     <div class="large-12 columns">
+      <p>Here they are, all your lovely favourite dogs that you've added on this website. You should message them if you haven't yet. Or go and <%= link_to "find some more", users_path %>.</p>
       <ul class="small-block-grid-6">
-        <ul class="small-block-grid-6">
           <% current_user.find_voted_items.each do |dog| %>
           <li>
             <%= link_to image_tag(dog.picture.thumb.url, alt: "image"), dog_path(dog) %>
@@ -10,9 +10,7 @@
             <h4><%= dog.name %></h4>
           </li>
           <% end %>
-        </ul>
       </ul>
     </div>
   </div>
-</div>
-</li>
+
