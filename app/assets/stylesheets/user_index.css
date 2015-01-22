@@ -44,9 +44,7 @@ h1 .logo {
   top: -9em;
 }
 
-#ads_img {
-  /*resize to fit into the element*/
-}
+
 
 .email_log {
   color: #2C6700;
@@ -97,6 +95,11 @@ h1 .logo {
   text-align: center;
 
 }
+
+#ads_img {
+  height: 8em;
+}
+
 @keyframes blink {  
       0% { opacity: 1.0; }
       50% { opacity: 0.0; }
