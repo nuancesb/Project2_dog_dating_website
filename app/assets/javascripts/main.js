@@ -24,7 +24,7 @@ myMap.populateMap = function() {
     var returnString = '';
 
     $.each(user.dogs, function(key, dog) {
-      returnString += '<br>' + dog.name;
+      returnString += '<br>' + dog.picture;
     });
 
     return returnString;
