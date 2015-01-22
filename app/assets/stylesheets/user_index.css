@@ -121,4 +121,16 @@ h1 .logo {
     .blink a {
       color: white;
     }
+    
 
+.tiny-image {
+  margin-right: 0.3em;
+  /*-moz-border-radius:x;
+  -webkit-border-radius:10px;*/
+  border-radius:50% ;
+}
+
+.profile-image {
+  border-radius:50%
+}
+    
