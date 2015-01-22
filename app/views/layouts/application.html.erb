@@ -8,7 +8,6 @@
 
   <%= stylesheet_link_tag    "application" %>
   <script type="text/javascript"
-
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTgoMD-G7C3QJP1_QIn5YBS-wUCm56u8Q">
   </script>
 
@@ -26,7 +25,6 @@
       <nav class="tab-bar">
         <section class="left-small">
           <a class="left-off-canvas-toggle menu-icon" href="#"><span ></span></a>
-          <p class="menu_title">Menu</p>
         </section>
 
         <section class="middle tab-bar-section">
@@ -44,6 +42,7 @@
           <% if user_signed_in? %>
           <li><%= link_to 'Home', users_path  %></li>
           <li><%= link_to "My messages", conversations_path  %></li>
+          <li><%= link_to "My profile", user_path(current_user.id)  %></li>
           <li><a href="#">My favorites</a></li>
           <% end %>
           <li><a href="#">Help - FAQ</a></li>
