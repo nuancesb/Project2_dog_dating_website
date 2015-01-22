@@ -62,8 +62,8 @@
 
       <aside class="right-off-canvas-menu">
         <ul class="off-canvas-list">
-            <li><h3>Search for dogs</h3></li>
-        <%= search_form_for @q do |f| %>
+          <li><h3>Search for dogs</h3></li>
+          <%= search_form_for @q do |f| %>
           <li>
             <%= f.label :name %>
             <%= f.text_field :name_cont %>
@@ -79,35 +79,45 @@
           <li>
             <%= f.submit :class => 'small button' %>
           </li>
-        <% end %>
-      </ul>
-    </aside>
+          <% end %>
+        </ul>
+      </aside>
 
-    <section class="main-section">
-     <div class="row">
-       <div class="alerts">
-         <p class="notice"><%= notice %></p>
-         <p class="alert"><%= alert %></p>
+      <section class="main-section">
+        <div id="fb-root"></div>
+        <!-- Like us and share on Facebook script -->
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.0";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+        <!-- Facebook script end -->
+        <div class="row">
+         <div class="alerts">
+           <p class="notice"><%= notice %></p>
+           <p class="alert"><%= alert %></p>
+         </div>
        </div>
-     </div>
-     <div class="row"> 
-       <div class="large-12 columns">
-         <%= yield %>
+       <div class="row"> 
+         <div class="large-12 columns">
+           <%= yield %>
+         </div>
        </div>
-     </div>
-     <div class="row">
-       <%= render partial: "/layouts/footer" %>
-     </div>
-   </section>
+       <div class="row">
+         <%= render partial: "/layouts/footer" %>
+       </div>
+     </section>
 
-   <a class="exit-off-canvas"></a>
+     <a class="exit-off-canvas"></a>
 
+   </div>
  </div>
-</div>
 
 
 
 
-<%= javascript_include_tag "application" %>
+ <%= javascript_include_tag "application" %>
 </body>
 </html>
