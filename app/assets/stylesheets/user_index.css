@@ -132,8 +132,8 @@ h1 a.logo {
 
 }
 
-#ads_img {
-  height: 8em;
+#add_section #ads_img {
+  height: 100%;
 }
 
 @keyframes blink {  

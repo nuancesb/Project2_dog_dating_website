@@ -52,8 +52,7 @@
         <%= f.label :postcode, 'Your postcode:' %> 
         <%= f.text_field :postcode, class: 'postcode_entry' %>
       </div>
-      <div class="field, large-6 columns">
-        <br>
+      <div class="display_none">
         (Geolocation: Latitude: <%= @user.home_lat %>, Longitude: <%= @user.home_long %>)
       </div>
       <div class="field, large-3 columns">
@@ -78,8 +77,12 @@
 
 
 <div class="row">
-  <div class="actions, large-12 columns">
-    <%= f.submit "Submit", class: "button alert" %>
+  <div class="actions, large-2 columns">
+    <%= f.submit "Submit", class: "button" %>
+    <% end %>
+  </div>
+  <div class="actions, large-10 columns">
+    <%= link_to 'Back', user_path(current_user.id), class: "button" %>
   </div>
 </div>
-<% end %>
+
