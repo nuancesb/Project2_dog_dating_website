@@ -3,7 +3,7 @@
   padding-left: 0.1em;
 }
 
-h1 .logo {
+h1 a.logo {
   font-family: 'Courgette', cursive;
   color: #2C6700;
   font-size: 2em;
@@ -44,7 +44,12 @@ h1 .logo {
   top: -9em;
 }
 
-
+.iframe_container iframe {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 0;
+}
 
 .email_log {
   color: #2C6700;
@@ -62,14 +67,45 @@ h1 .logo {
   text-align: center; 
 }
 
-.menu_title {
-  position: relative;
-  left: 3.2em;
-  top: -2.1em;
-}
 
 .display_none {
   display: none;
+}
+
+
+
+#landing_pg_row {
+  max-width: 100%;
+  min-height: 20em;
+  text-align: center;
+  margin-bottom: 1em;
+  position: relative;
+}
+
+#landing_pg_row img {
+  z-index: -5;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  vertical-align: middle;
+}
+
+#landing_pg_row h1 {
+  color: white;
+}
+
+#landing_pg_row h2 {
+  color: white;
+}
+
+#FB-sign-in {
+  background-color: #FCA504;
+  line-height: 3em;
+  display: inline-block;
+  margin: 0 auto;
+  padding: 0 1em;
+  font-size: 2em;
 }
 
 #map-canvas { 
@@ -133,4 +169,39 @@ h1 .logo {
 .profile-image {
   border-radius:50%
 }
+
+@media (max-width: 64em) {
+  h1 a.logo {
+    font-size: 1em;
+  } 
+  #landing_pg_row { 
+    min-height: 15em;
+  }
+  #FB-sign-in {
+    line-height: 2em;
+    font-size: 1.3em;
+  }
+}  
+
+@media (max-width: 40em) {
+  h1 a.logo {
+    font-size: 1.3em;
+  } 
+  #landing_pg_row { 
+    min-height: 8em;
+  }
+  #landing_pg_row h1 {
+    font-size: 1.2em;
+    line-height: 1.5em;
+  }
+  #landing_pg_row h2 {
+    font-size: 0.8em;
+    line-height: 0.8em;
+  }
+  #FB-sign-in {
+    line-height: 2em;
+    font-size: 1em;
+    margin-top: 2em;
+  }
+}   
     
