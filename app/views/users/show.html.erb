@@ -16,7 +16,7 @@
       <% if @user == current_user %>
       <%= link_to 'Edit', edit_profile_path, class: "button tiny" %>
       <% end %>
-      <%= link_to 'Back', users_path, class: "button tiny" %>
+      <%= link_to 'Back to home', users_path, class: "button tiny" %>
       <% if @user != current_user %>
       <%= link_to 'Message me!', new_user_conversation_path(@user.id), class: "button tiny alert" %>
       <% end %>
