@@ -53,16 +53,15 @@
         <%= f.label :breed %>
         <%= f.select :breed, Dog::BREEDLIST %>
       </div>
-      <div class="field, large-3 columns"> 
-        <!-- add class display_none to hide the field -->
+      <div class="display_none"> 
         <%= f.label :user_id %>
         <%= f.text_field :user_id %>
       </div>
     </div>
     <div class="row">
       <div class="large-12 columns">
-        <%= f.label :description, 'This is my description:' %>
-        <%= f.text_field :description %>
+        <%= f.label :description, 'A little bit about the dog:' %>
+        <%= f.text_area :description %>
       </div>
     </div>  
   </div>
