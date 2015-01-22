@@ -1,12 +1,40 @@
 <div class="large-4 columns">
   <div class="row">
     <div class="large-12 columns">
+      <div class="like_section">
+        <h4><% if  current_user.voted_for? @dog %>
+        <% like = image_tag('staryellow.png', :alt => "like", :class => "like") %>
+        <span><%= link_to like, unlike_user_path(@dog), class: "like", method: :post %></span>
+        <% else %>
+          <% like = image_tag('star.png', :alt => "like", :class => "like") %>
+          <span><%= link_to like, like_user_path(@dog), class: "like", method: :post %>   </span>
+        <% end %>
+       <%= pluralize(@dog.get_likes.size, "vote") if @dog.get_likes.size != 0 %></h4>
+      </div>
+    </div>
+  </div> 
+  <div class="row">
+    <div class="large-12 columns">
       <%= image_tag(@dog.picture.detail.url, width: "80em", alt: "Dog image") %>
     </div>  
   </div> 
   <div class="row">
     <div class="large-12 columns">
+      <br>
+      Listen to me:
       <%= audio_tag(@dog.sound, autoplay: false, controls: true, class: "dog_sound")  %>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <% if  @dog.user_id == current_user.id %>
+        <%= link_to 'Edit', edit_dog_path(@dog), class: "button tiny" %>
+      <% end %>
+      <%= link_to 'Back', :back, class: "button tiny" %>
+      <% if  @dog.user_id != current_user.id %>
+      <%= link_to 'Message my Owner!', new_user_conversation_path(@dog.user_id), class: "button tiny alert" %>
+      <% end %>
     </div>
   </div>
 </div>
@@ -19,7 +47,7 @@
       <h4><%= @dog.sex %></h4>
     </div>
     <div class="large-3 columns">
-     <h4> <%= @dog.breed %></h4>
+     <h4>Breed: <%= @dog.breed %></h4>
     </div>
     <div class="large-3 columns">
       <h4><%= @dog.dob %></h4>  
@@ -32,6 +60,7 @@
   </div>
   <div class="row">
     <div class="large-9 columns">
+      <br>
       <h4>Dog owner: 
       <%= link_to User.find(@dog.user_id).nickname, user_path(@dog.user_id) %></h4>
     </div>
@@ -43,7 +72,4 @@
 </div>
 
 </div>
-<%= link_to 'Edit', edit_dog_path(@dog) %>
-\|
-<%= link_to 'Back', dogs_path %>
 

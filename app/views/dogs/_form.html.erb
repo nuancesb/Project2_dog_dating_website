@@ -1,27 +1,76 @@
+<div class="row">
+  <div class="large-12 columns">
+  <h2>Please create or edit the dog profile:</h2>
+  </div> 
+</div>  
 <%= form_for @dog do |f| %>
+<div class="row">
   <% if @dog.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= "#{pluralize(@dog.errors.count, "error")} prohibited this dog from being saved:" %>
-      </h2>
-      <ul>
-        <% @dog.errors.full_messages.each do |msg| %>
-          <li>
-            <%= msg %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+  <div id="error_explanation">
+    <h2>
+      <%= "#{pluralize(@dog.errors.count, "error")} prohibited this dog from being saved:" %>
+    </h2>
+    <ul>
+      <% @dog.errors.full_messages.each do |msg| %>
+      <li>
+        <%= msg %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
   <% end %>
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+</div>
+<div class="row">
+  <div class="field, large-3 columns">
+    <div class="row">
+      <div class="field, large-12 columns">
+      <%= f.label :picture, 'Select the image file or url:' %><br>
+      <%= image_tag(@dog.picture.thumb.url, width: "80em", class: "dog_pic", alt: "dog picture") %>
+      <%= f.file_field :picture %>
+      <%= f.text_field :remote_picture_url, value: nil, placeholder: 'or paste url here' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field, large-12 columns">
+        <%= f.label :sound, 'Select the sound file or url:' %><br>
+        <%= f.file_field :sound %>
+        <%= f.text_field :remote_sound_url, value: nil, placeholder: 'paste url here' %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :user %>
-    <%= f.text_field :user %>
+
+  <div class="field, large-9 columns">
+    <div class="row">
+      <div class="field, large-3 columns">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <div class="field, large-3 columns">
+        <%= f.label :sex %>
+        <%= f.select :sex, [["Male", "male"],["Female","female"]] %>
+      </div>
+      <div class="field, large-3 columns">
+        <%= f.label :breed %>
+        <%= f.select :breed, Dog::BREEDLIST %>
+      </div>
+      <div class="field, large-3 columns"> 
+        <!-- add class display_none to hide the field -->
+        <%= f.label :user_id %>
+        <%= f.text_field :user_id %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-12 columns">
+        <%= f.label :description, 'This is my description:' %>
+        <%= f.text_field :description %>
+      </div>
+    </div>  
   </div>
-  <div class="actions">
-    <%= f.submit 'Save' %>
+</div> 
+<div class="row">
+  <div class="actions, large-3 columns">
+    <%= link_to 'Back', :back, class: "button" %>
+    <%= f.submit 'Save', class: "button alert" %>
   </div>
+</div>
 <% end %>

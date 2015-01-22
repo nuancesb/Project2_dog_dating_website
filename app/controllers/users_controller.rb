@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @dogs = @q.result(distinct: true)
     respond_to do |format|
       format.html
-      format.json { render json: @users }
+      format.json { render json: @users, root: false }
     end
    
   

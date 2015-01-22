@@ -22,6 +22,7 @@ class DogsController < ApplicationController
     @q = Dog.ransack(params[:q])
     @dogs = @q.result(distinct: true)
     @dog = Dog.new
+    @dog.user_id = params[:user_id].to_i
     respond_with(@dog)
   end
 
@@ -50,6 +51,21 @@ class DogsController < ApplicationController
     @dogs = @q.result(distinct: true)
     @dog.destroy
     respond_with(@dog)
+  end
+
+  def like
+    @dog.like_by current_user
+    redirect_to dog_path(@dog)
+  end
+
+  def unlike
+    @dog.unliked_by current_user
+    redirect_to dog_path(@dog)
+  end
+
+  def dogs_most_voted
+    @dogs = Dog.get_likes.size
+    raise
   end
 
   private

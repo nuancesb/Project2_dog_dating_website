@@ -41,7 +41,7 @@ h1 .logo {
 }
 
 .display_none {
-  /*display: none;*/
+  display: none;
 }
 
 #map-canvas { 

@@ -1,3 +1,5 @@
+<div class="row">
+  <div class="large-12 columns">
 
   <% if current_user.mailbox.inbox({:read => false}).count == 1 %>
   <div class ='blink'>
@@ -10,10 +12,17 @@
   <% else %>
 
   <% end %>
+  <br>
+  </div>
+</div>  
 
+<div class="row">
+  <div class="large-12 columns">
+    <section id="map-canvas"></section>
+  </div>
+</div>
 
-
-<section id="map-canvas"></section>
+  <!-- ALL BELOW TO BE DELETED FROM FINAL APP -->
 <h1>Listing Users</h1>
 <table>
   <thead>
@@ -90,6 +99,7 @@
     <% end %>
   </tbody>
 </table>
+<!-- DELETE UP TO HERE -->
 <h2>My latest messages</h2>
 <table>
   <thead>
@@ -115,4 +125,21 @@
     <% end %>
   </tbody>
 </table>
+<div class="row">
+<h3>Most popular dogs:</h3>
+  <div class="large-12 columns">
+    <ul class="small-block-grid-6">
+      <ul class="small-block-grid-6">
+        <% Dog.sort_by_likes.first(6).each do |dog| %>
+        <li>
+          <%= link_to image_tag(dog.picture.thumb.url, alt: "image"), dog_path(dog) %>
+         <br>
+         <h4><%= dog.name %></h4>
+        </li>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
 

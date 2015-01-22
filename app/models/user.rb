@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   has_many :dogs, dependent: :destroy
   acts_as_messageable
 
+  acts_as_voter
+
   def self.from_omniauth(auth)
     if user = User.find_by_email(auth.info.email)
       user.provider = auth.provider
@@ -57,6 +59,10 @@ class User < ActiveRecord::Base
 
   def has_location?
     [home_lat, home_long].all?
+  end
+
+  def has_postcode?
+    postcode?
   end
 
   def current_user_log?

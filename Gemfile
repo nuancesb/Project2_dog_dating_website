@@ -8,6 +8,7 @@ group :development, :test do
   gem 'better_errors'
 end
 
+gem 'active_model_serializers'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'cancancan'
