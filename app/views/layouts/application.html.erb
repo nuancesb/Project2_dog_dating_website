@@ -9,9 +9,9 @@
   <%= stylesheet_link_tag    "application" %>
   <script type="text/javascript"
 
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTgoMD-G7C3QJP1_QIn5YBS-wUCm56u8Q">
-      </script>
-      
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTgoMD-G7C3QJP1_QIn5YBS-wUCm56u8Q">
+  </script>
+
 
   <%= javascript_include_tag "vendor/modernizr" %>
 
@@ -44,11 +44,11 @@
           <% if current_user %>
           <li><label><%= current_user.email %></label></li>
           <li><%= link_to "Edit Profile", edit_profile_path %>
-            </li>
-            <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+          </li>
+          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
           <% else %>
           <li><label>Sign in</label></li>
-            <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
+          <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
           <% end %>
           <% if user_signed_in? %>
           <li><%= link_to 'Home', users_path  %></li>
@@ -62,34 +62,34 @@
 
       <aside class="right-off-canvas-menu">
         <ul class="off-canvas-list">
-          <li><a href="#">Search for dogs</a></li>
-        </ul>
-      </aside>
+          
+      </ul>
+    </aside>
 
-      <section class="main-section">
-         <div class="row">
-           <div class="alerts">
-             <p class="notice"><%= notice %></p>
-             <p class="alert"><%= alert %></p>
-           </div>
-         </div>
-         <div class="row"> 
-           <div class="large-12 columns">
-             <%= yield %>
-           </div>
-         </div>
-         <div class="row">
-           <%= render partial: "/layouts/footer" %>
-         </div>
-      </section>
+    <section class="main-section">
+     <div class="row">
+       <div class="alerts">
+         <p class="notice"><%= notice %></p>
+         <p class="alert"><%= alert %></p>
+       </div>
+     </div>
+     <div class="row"> 
+       <div class="large-12 columns">
+         <%= yield %>
+       </div>
+     </div>
+     <div class="row">
+       <%= render partial: "/layouts/footer" %>
+     </div>
+   </section>
 
-    <a class="exit-off-canvas"></a>
+   <a class="exit-off-canvas"></a>
 
-    </div>
-  </div>
+ </div>
+</div>
 
 
- 
+
 
 <%= javascript_include_tag "application" %>
 </body>
