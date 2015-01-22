@@ -1,36 +1,37 @@
 <div class="row">
-  <div class="text-center">
-    <h1>Welcome to the website for Dogs dating Dogs</h1>
-    <p>Introduction to the website</p>
-  </div>  
-</div>  
-<div class="row">
-  <div class="large-4 columns">
-    <br>
-  </div>   
-  <div class="large-4 columns">
-    <div class="text-center">
-      <div class="FB-sign-in">
-        <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+  <div class="landing_pge_wrap">
+    <div class="landing_bkg_img">
+      <%=image_tag('leopard caniche.png', id: "bkg_img") %>
+    </div>
+    <div class="row">
+      <div class="text-center">
+        <h1 id="main_statement">Mismatches can be dangerous!</h1>
+        <h2 id="small_statement">Join the right Dogs dating Dogs website</h2>
+      </div>  
+      <div class="large-4 columns">
+        <br>
+      </div>   
+      <div class="large-4 columns">
+        <div class="text-center">
+          <div class="FB-sign-in">
+            <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+          </div>
+        </div>
+      </div> 
+      <div class="large-4 columns">
+      </div>    
+    </div>
+    <div class="row">
+      <div class="large-6 columns">
+        <div class="text-center">
+          <iframe width="420" height="315" src="//www.youtube.com/embed/47oAcD2qwzM" frameborder="0" allowfullscreen></iframe>
+        </div>  
+      </div>
+      <div class="large-6 columns">
+        <div class="column, medium-centered">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut lacus mi. Etiam bibendum, lectus sed fringilla placerat, orci metus tincidunt nunc, in consequat ante justo a felis. Proin quis sapien mi. Phasellus id enim sit amet arcu commodo egestas. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam vitae faucibus odio</p>
+        </div>  
       </div>
     </div>
-  </div> 
-  <div class="large-4 columns">
-    <br>
-  </div>    
-  <br>
-</div>
-<div class="row">
-  <br>
-  <div class="large-6 columns">
-    <div class="text-center">
-      <iframe width="420" height="315" src="//www.youtube.com/embed/47oAcD2qwzM" frameborder="0" allowfullscreen></iframe>
-    </div>  
-  </div>
-  <div class="large-6 columns">
-    <div class="column, medium-centered">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut lacus mi. Etiam bibendum, lectus sed fringilla placerat, orci metus tincidunt nunc, in consequat ante justo a felis. Proin quis sapien mi. Phasellus id enim sit amet arcu commodo egestas. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam vitae faucibus odio</p>
-    </div>  
   </div>
 </div>
-

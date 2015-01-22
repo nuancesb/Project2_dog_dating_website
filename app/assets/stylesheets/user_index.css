@@ -18,6 +18,36 @@ h1 .logo {
   padding: 1em 2em 1em 2em;
 }
 
+.landing_pge_wrap .bkg_img {
+  max-width:100%;
+  max-height:100%;
+}
+
+.landing_pge_wrap #main_statement {
+  font-family: 'Courgette', cursive;
+  color: white;
+  font-weight: bold;
+  position: relative;
+  top: -10em;
+}
+
+.landing_pge_wrap #small_statement {
+  font-family: 'Courgette', cursive;
+  color: white;
+  font-weight: bold;
+  position: relative;
+  top: -11em;
+}
+
+.landing_pge_wrap .FB-sign-in {
+  position: relative;
+  top: -9em;
+}
+
+#ads_img {
+  /*resize to fit into the element*/
+}
+
 .email_log {
   color: #2C6700;
 }
