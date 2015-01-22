@@ -23,19 +23,19 @@
 <div class="panel">
   <div class="row">
    <div class="large-12 columns">
-    <h2>My messages</h2>
+    <h3>My messages</h3>
   </div>
 </div>
 
 <div class="row">
   <div class="large-4 columns">
-    <h3>Topic</h3>
+    Topic
   </div>
   <div class="large-4 columns">
-    <h4>Received at</h4>
+    Received at
   </div>
   <div class="large-4 columns">
-    <h4>Sent by</h4>
+    Sent by
   </div>
 </div>
 
@@ -60,13 +60,7 @@
   <div class="row">
     <div class="large-12 columns">
       <h3>Most popular dogs:</h3>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="large-12 columns">
       <ul class="small-block-grid-6">
-        <ul class="small-block-grid-6">
           <% Dog.sort_by_likes.first(6).each do |dog| %>
           <li>
             <%= link_to image_tag(dog.picture.thumb.url, alt: "image"), dog_path(dog) %>
@@ -74,7 +68,6 @@
             <h4><%= dog.name %></h4>
           </li>
           <% end %>
-        </ul>
       </ul>
     </div>
   </div>
