@@ -39,7 +39,7 @@
   </div>
 </div>
 
-<% current_user.mailbox.conversations.each do |conversation| %>
+<% current_user.mailbox.conversations.first(5).each do |conversation| %>
 <div class="row">
  <div class="large-4 columns">
   <p> <%= link_to conversation.subject, conversation_path(conversation) %></p>
