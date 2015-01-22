@@ -26,14 +26,9 @@ myMap.populateMap = function() {
     console.log(user)
     $.each(user.dogs, function(key, dog) {
 
-      returnString += '<a href ="/dogs/' + dog.id + '">' + '<img src="' + dog.picture.thumb.url + '"></a>';
+      returnString += '<a href ="/dogs/' + dog.id + '">' + '<img src="' + dog.picture.tiny.url + '" class="tiny-image"></a>';
 
     });
-
-    
-    
-
-
 
     return returnString;
   }
@@ -43,6 +38,9 @@ myMap.populateMap = function() {
     {},
     function(data) {
       $.each(data, function(key, user) {
+
+        console.log(dogContent(user))
+
         if (user.postcode) {
           myMap.addMarker({
             lat: user.home_lat,
@@ -105,7 +103,7 @@ myMap.addMarker = function(data){
   google.maps.event.addListener(marker, "mouseover", function(){
     popup.close(myMap.map, marker);
   });
-  popup.open(myMap.map, marker);
+  // popup.open(myMap.map, marker);
 
 }
 
