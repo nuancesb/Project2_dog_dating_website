@@ -39,6 +39,21 @@ class DogsController < ApplicationController
     respond_with(@dog)
   end
 
+  def like
+    @dog.like_by current_user
+    redirect_to dog_path(@dog)
+  end
+
+  def unlike
+    @dog.unliked_by current_user
+    redirect_to dog_path(@dog)
+  end
+
+  def dogs_most_voted
+    @dogs = Dog.get_likes.size
+    raise
+  end
+
   private
     def set_dog
       @dog = Dog.find(params[:id])

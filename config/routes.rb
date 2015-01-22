@@ -13,9 +13,14 @@ Rails.application.routes.draw do
     end
 
   resource :profile, only: [:edit, :update, :show], controller: :users
+  
   resources :dogs
 
   resources :users, only: [:index, :show] do
+    member do
+      post "like", to: "dogs#like"
+      post "unlike", to: "dogs#unlike"
+    end
     resources :conversations, only: [:new, :create] do
       
     end

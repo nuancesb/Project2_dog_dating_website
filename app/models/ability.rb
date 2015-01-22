@@ -13,6 +13,8 @@ class Ability
             can :edit, Dog, user_id: user.id 
             can :update, Dog, user_id: user.id 
             can :destroy, Dog, user_id: user.id 
+            can :like, Dog 
+            can :unlike, Dog
         else user.persisted?
             can :read, :all
         end
