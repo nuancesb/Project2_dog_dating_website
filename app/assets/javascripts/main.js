@@ -20,12 +20,20 @@ myMap.getPosition = function(){
 }
 
 myMap.populateMap = function() {
+
   function dogContent(user) {
     var returnString = '';
-
+    console.log(user)
     $.each(user.dogs, function(key, dog) {
-      returnString += '<br>' + dog.name;
+
+      returnString += '<a href ="/dogs/' + dog.id + '">' + '<img src="' + dog.picture.thumb.url + '"></a>';
+
     });
+
+    
+    
+
+
 
     return returnString;
   }
