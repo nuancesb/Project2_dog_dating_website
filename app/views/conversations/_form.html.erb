@@ -1,14 +1,14 @@
 
 <%= form_tag user_conversations_path(@user) do %>
   <div class="field">
-    <%= label_tag :subject %><br>
+    <%= label_tag :subject, "Conversation subject" %><br>
     <%= text_field_tag :subject %>
   </div>
   <div class="field">
-    <%= label_tag :body %><br>
-    <%= text_field_tag :body %>
+    <%= label_tag :body, "Message"%><br>
+    <%= text_area_tag :body %>
   </div>
   <div class="actions">
-    <%= submit_tag "Send message" %>
+    <%= submit_tag "Send message", class: "button" %>
   </div>
 <% end %>

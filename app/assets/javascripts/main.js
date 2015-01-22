@@ -17,7 +17,7 @@ myMap.getPosition = function(){
   } else {
     alert("You cannot geolocate");
   }
-}
+};
 
 myMap.populateMap = function() {
 
