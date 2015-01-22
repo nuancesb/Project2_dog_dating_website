@@ -5,8 +5,11 @@ Rails.application.routes.draw do
 
 
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
+  
   get  '/home/faq', to: "home#faq", as: 'faq'
   get  '/home/about', to: "home#about", as: 'about'
+  get '/home/favorites', to: "home#favorites", as:'favorites'
+
   resources :conversations, only: [:index, :show, :destroy] do
        member do
         post 'reply'

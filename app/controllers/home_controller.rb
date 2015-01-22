@@ -16,5 +16,10 @@ class HomeController < ApplicationController
     @dogs = @q.result(distinct: true)
   end
 
+  def favorites
+    @q = Dog.ransack(params[:q])
+    @dogs = @q.result(distinct: true)
+  end
+
 
 end
