@@ -15,8 +15,8 @@ class Ability
             can :destroy, Dog, user_id: user.id 
             can :like, Dog 
             can :unlike, Dog
-        else user.persisted?
-            can :read, :all
+        # else user.persisted?
+        #     can :read, User
         end
     end
 

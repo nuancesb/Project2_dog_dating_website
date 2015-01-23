@@ -1,13 +1,13 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
-  # :registrable, :confirmable, :lockable, :timeoutable and :omniauthable
+  # :registrable, :confirmable, :recoverable,  :lockable, :timeoutable and :omniauthable
   # :confirmable, :lockable, :timeoutable and :omniauthable
   
   geocoded_by :postcode, latitude: :home_lat, longitude: :home_long
   after_validation :geocode, :if => :postcode_changed?
 
-  devise :database_authenticatable,
-  :recoverable, :rememberable, :trackable, :validatable, 
+  devise :database_authenticatable, :rememberable,
+  :trackable, :validatable, 
   :omniauthable, omniauth_providers: [:facebook]
 
   mount_uploader :image, UserImageUploader

@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to :back, alert: "You can't access this page" 
+    redirect_to root_path, alert: "You can't access this page" 
   end
 
 end
