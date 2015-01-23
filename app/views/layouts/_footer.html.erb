@@ -1,8 +1,4 @@
-<div class="row">
-  <section id="add_section">
-      <%=image_tag('ads-dog-holiday.png', id: "ads_img") %>
-  </section>
-</div>
+
 <div class="row">
   <div class="large-12 columns text-center">
     Copyright Date My Dog 2015 | <%= mail_to 'datemydognow@gmail.com', 'admin@date-my-dog.com' %>  | <% if current_user %>Your user ID: <%= current_user.id %> |<% end %> <% if !current_user %><%= link_to "Admin Sign In", new_user_session_path %> <% end %> 
