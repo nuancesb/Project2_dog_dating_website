@@ -167,7 +167,7 @@ h1 a.logo {
 }
 
 .profile-image {
-  border-radius:50%
+  border-radius:5%
 }
 
 @media (max-width: 64em) {
