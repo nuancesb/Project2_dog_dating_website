@@ -19,7 +19,7 @@
   <p>Reply to this conversation:</p>
   <%= form_tag reply_conversation_path(@conversation) do %>
   <%= text_area_tag :body %>
-  <%= submit_tag 'Send message', class: "button"%>
+  <%= submit_tag 'Send message', class: "alert button"%>
   <%= submit_tag 'Clear reply box', type: :reset, class: "button"%>
 
   <% end %>
